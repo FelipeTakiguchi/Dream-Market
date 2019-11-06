@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="551.0" maxWidth="1000.0" minHeight="720.0" minWidth="1280.0" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="/sample/css/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Login">
+    <JFXButton layoutX="1212.0" layoutY="14.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <styleClass>
+            <String fx:value="botaoredondopreto" />
+            <String fx:value="corazul2" />
+        </styleClass>
+        <font>
+            <Font name="System Bold" size="13.0" />
+        </font>
+    </JFXButton>
+   <Label layoutX="578.0" layoutY="426.0" text="Não possui uma conta?" />
+   <Label layoutX="703.0" layoutY="426.0" onMouseClicked="#cadastrarUsuario" text="Crie agora!" textFill="#00ccffe2">
+      <cursor>
+         <Cursor fx:constant="OPEN_HAND" />
+      </cursor>
+   </Label>
+   <JFXTextField fx:id="tfEmail" labelFloat="true" layoutX="556.0" layoutY="271.0" prefHeight="30.0" prefWidth="235.0" promptText="Email" />
+   <JFXPasswordField fx:id="pfSenha" labelFloat="true" layoutX="556.0" layoutY="345.0" prefHeight="30.0" prefWidth="235.0" promptText="Senha" />
+
+</AnchorPane>
