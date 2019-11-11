@@ -1,7 +1,7 @@
 package sample.modelDAO;
 
 import sample.model.FabricaConexao;
-import sample.model.Usuario;
+import sample.model.UsuarioAdm;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,16 +10,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioDAOImpl implements UsuarioDAO {
+public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
 
-    private static String INSERE = "insert into usuario(nome, email, senha, id_Cidade) values(?, ?, ?, ?)";
-    private static String VERIF = "select nome from usuario where nome like ? and senha like ?";
-    private static String LISTA = "select * from usuario";
-    private static String BUSCAID = "select * from usuario where id like ?";
+    private static String INSERE = "insert into UsuarioADM(nome, email, senha, id_Cidade, telefone, cpf) values(?, ?, ?, ?, ?, ?)";
+    private static String VERIF = "select nome from UsuarioADM where nome like ? and senha like ?";
+    private static String LISTA = "select * from UsuarioADM";
+    private static String BUSCAID = "select * from UsuarioADM where id like ?";
 
     @Override
-    public Usuario insere(String nome, String email, String senha, int id_Cidade) throws SQLException {
-        Usuario u = new Usuario(nome, email, senha, id_Cidade);
+    public UsuarioAdm insere(String nome, String email, String senha, int id_Cidade, String telefone, String cpf) throws SQLException {
+        UsuarioAdm u = new UsuarioAdm(nome, email, senha, id_Cidade, telefone, cpf);
         Connection con = FabricaConexao.getConnection();
 
 
@@ -30,6 +30,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         stm.setString(2,u.getEmail());
         stm.setString(3,u.getSenha());
         stm.setInt(4,u.getId_Cidade());
+        stm.setString(5,u.getTelefone());
+        stm.setString(6,u.getCpf());
 
         stm.executeUpdate();
 
@@ -40,9 +42,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
     @Override
-    public Usuario verif(String Nome, String Senha) throws SQLException {
+    public UsuarioAdm verif(String Nome, String Senha) throws SQLException {
 
-        Usuario u = null;
+        UsuarioAdm u = null;
 
         Connection con = FabricaConexao.getConnection();
 
@@ -58,8 +60,10 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             String email = res.getString("email");
             String senha = res.getString("senha");
             int id_cidade = res.getInt("id_Cidade");
+            String telefone = res.getString("telefone");
+            String cpf = res.getString("cpf");
 
-            u = new Usuario(nome, email, senha, id_cidade);
+            u = new UsuarioAdm(nome, email, senha, id_cidade, telefone, cpf);
         }
 
         res.close();
@@ -70,8 +74,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
     @Override
-    public List<Usuario> lista() throws SQLException{
-        ArrayList<Usuario> Usuarios = new ArrayList<>();
+    public List<UsuarioAdm> lista() throws SQLException{
+        ArrayList<UsuarioAdm> Usuarios = new ArrayList<>();
 
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stm = con.prepareStatement(LISTA);
@@ -84,7 +88,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             String email = rs.getString("email");
             String senha = rs.getString("senha");
             int id_cidade = rs.getInt("id_cidade");
-            Usuario cat = new Usuario(id, nome, email, senha, id_cidade);
+            String telefone = rs.getString("telefone");
+            String cpf = rs.getString("cpf");
+            UsuarioAdm cat = new UsuarioAdm(id, nome, email, senha, id_cidade, telefone, cpf);
 
             Usuarios.add(cat);
         }
@@ -97,9 +103,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
     @Override
-    public Usuario buscaId(int id) throws SQLException{
+    public UsuarioAdm buscaId(int id) throws SQLException{
 
-        Usuario u = null;
+        UsuarioAdm u = null;
 
         Connection con = FabricaConexao.getConnection();
 
@@ -114,7 +120,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             String email = res.getString("email");
             String senha = res.getString("senha");
             int id_cidade = res.getInt("id_cidade");
-            u = new Usuario(id, nome, email, senha, id_cidade);
+            String telefone = res.getString("telefone");
+            String cpf = res.getString("cpf");
+            u = new UsuarioAdm(id, nome, email, senha, id_cidade, telefone, cpf);
         }
 
         res.close();

@@ -2,6 +2,11 @@
     -fx-background-radius: 100;
 }
 
+.labelasterisco{
+    -fx-graphic: url("/sample/icons/asterisco.png");
+    -fx-padding: 0;
+}
+
 .corazul5{
     -fx-background-color: #051923;
 }

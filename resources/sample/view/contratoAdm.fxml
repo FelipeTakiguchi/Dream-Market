@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXScrollPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<AnchorPane prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.ContratoAdm">
+    <children>
+        <JFXScrollPane layoutX="151.0" layoutY="83.0" opacity="0.85" prefHeight="194.0" prefWidth="338.0">
+            <children>
+                <JFXTextArea text="Olá pessoal!&#10;&#10;Tudo bem com vocês?&#10;&#10;Hoje está um ótimo dia&#10;&#10;ótimo para quê?&#10;&#10;Para programar é claro!&#10;&#10;Vamos começar testando&#10;&#10;Este ScrollPane!&#10;&#10;:)" />
+            </children>
+        </JFXScrollPane>
+        <JFXButton layoutY="2.0" onAction="#voltar" text="Voltar" />
+        <JFXButton layoutX="291.0" layoutY="300.0" onAction="#proximo" text="Avançar" />
+        <JFXProgressBar layoutX="220.0" layoutY="26.0" progress="0.51" />
+    </children>
+</AnchorPane>

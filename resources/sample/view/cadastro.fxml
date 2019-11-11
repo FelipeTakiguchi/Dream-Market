@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Cadastro">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper1" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Cadastro">
    <children>
-       <JFXButton layoutX="1212.0" layoutY="14.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+       <JFXButton layoutX="1227.0" layoutY="21.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
            <cursor>
                <Cursor fx:constant="HAND" />
            </cursor>
@@ -57,5 +57,6 @@
       </JFXButton>
       <TextArea fx:id="taNormal" disable="true" layoutX="371.0" layoutY="88.0" prefHeight="66.0" prefWidth="324.0" text="O usuário normal pode apenas verificar os produtos &#10;pertencentes a determinados mercados, comparar preços,&#10;criar listas e gerar um documento da lista." visible="false" />
       <TextArea fx:id="taAdm" disable="true" layoutX="716.0" layoutY="88.0" prefHeight="66.0" prefWidth="344.0" text="O usuário administrador, pode efetuar todas as operações de &#10;um usuário normal, e também, cooperar compartilhando&#10; informações dos produtos e sendo avaliado pelos demais." visible="false" />
+      <JFXButton layoutY="2.0" onAction="#voltar" text="Voltar" />
    </children>
 </AnchorPane>

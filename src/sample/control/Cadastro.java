@@ -2,10 +2,30 @@ package sample.control;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+import sample.Browser;
+import sample.InternalWindow;
+
+import java.io.IOException;
+import java.util.List;
 
 public class Cadastro {
+
+    @FXML
+    AnchorPane anchoPane;
+
     @FXML
     private TextArea taAdm;
 
@@ -44,9 +64,70 @@ public class Cadastro {
         taAdm.setVisible(Boolean.FALSE);
     }
 
-    public void criaNormal(ActionEvent actionEvent) {
+    public void criaNormal(ActionEvent event) throws IOException {
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        Browser.loadWindows(Browser.CADASTRANORMAL);
+        FXMLLoader loader = new FXMLLoader();
+
+        Pane mainPane = (Pane) loader.load(
+                getClass().getResourceAsStream(
+                        Browser.BASE
+                )
+        );
+
+        Base controller = loader.getController();
+
+        Browser.setController(controller);
+        Browser.loadWindows(Browser.CADASTRANORMAL);
+
+        stage.setScene(new Scene(mainPane, 640, 360));
+        stage.show();
     }
 
-    public void criaAdministrador(ActionEvent actionEvent) {
+    public void criaAdministrador(ActionEvent event) throws IOException {
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        Browser.loadWindows(Browser.CADASTRANORMAL);
+        FXMLLoader loader = new FXMLLoader();
+
+        Pane mainPane = (Pane) loader.load(
+                getClass().getResourceAsStream(
+                        Browser.BASE
+                )
+        );
+
+        Base controller = loader.getController();
+
+        Browser.setController(controller);
+        Browser.loadWindows(Browser.CADASTRAADM);
+
+        stage.setScene(new Scene(mainPane, 640, 360));
+        stage.show();
+    }
+
+    @FXML
+    private void handleJan1(Stage stage) throws IOException {
+
+        System.out.println("Iniciando Janela Interna 1");
+
+        FXMLLoader loader = new FXMLLoader();
+
+        Pane mainPane = (Pane) loader.load(
+                getClass().getResourceAsStream(
+                        Browser.BASE
+                )
+        );
+
+        Base controller = loader.getController();
+
+        Browser.setController(controller);
+        Browser.loadWindows(Browser.CADASTRAUSUARIO);
+
+//        mainPane.getChildren().add();
+        stage.setScene(new Scene(mainPane, 1280, 720));
+        stage.show();
+    }
+
+    public void voltar(ActionEvent event) {
+        Browser.loadWindows(Browser.LOGIN);
     }
 }
