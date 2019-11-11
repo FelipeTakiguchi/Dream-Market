@@ -2,7 +2,6 @@ package sample.modelDAO;
 
 import sample.model.Cidade;
 import sample.model.Estado;
-import sample.model.Produto;
 import sample.model.FabricaConexao;
 
 import java.sql.Connection;
@@ -15,9 +14,10 @@ import java.util.List;
 public class CidadeDAOImpl implements CidadeDAO {
 
     private static String INSERE = "insert into Cidade(cidade, Id_estado) values(?, ?)";
-    private static String VERIF = "select nome from Cidade where nome like ?";
+    private static String VERIF = "select * from Cidade where nome like ?";
     private static String LISTA = "select * from Cidade";
     private static String BUSCAID = "select * from Cidade where id like ?";
+    private static String ESTADO = "select * from Estado where Id_estado = ?";
 
     @Override
     public Cidade insere(String nome, Estado estado) throws SQLException {
@@ -41,7 +41,9 @@ public class CidadeDAOImpl implements CidadeDAO {
     @Override
     public Cidade verif(String Nome) throws SQLException {
 
-        Cidade c = null;
+        String nome_cidade = "";
+        Cidade cidade = null;
+        int id_estado = -1;
 
         Connection con = FabricaConexao.getConnection();
 
@@ -54,20 +56,41 @@ public class CidadeDAOImpl implements CidadeDAO {
         while(res.next()){
             int id = res.getInt("id");
             String nome = res.getString("nome");
+            id_estado = res.getInt("Id_estado");
 
-            c = new Cidade(id, nome, estado);
+            PreparedStatement stm2 = con.prepareStatement(ESTADO);
+
+            stm2.setInt(1, id_estado);
+
+            ResultSet res2 = stm.executeQuery();
+
+            while (res2.next()) {
+                String nome_Estado;
+
+                nome_Estado = res2.getString("nome");
+
+                Estado estado = new Estado(nome_Estado);
+                cidade = new Cidade(nome_cidade, estado);
+            }
+
+            res2.close();
+            stm2.close();
         }
 
         res.close();
         stm.close();
         con.close();
 
-        return c;
+        return cidade;
     }
 
     @Override
     public List<Cidade> lista() throws SQLException{
         ArrayList<Cidade> Cidades = new ArrayList<>();
+        String nome_cidade = "";
+        Cidade cidade = null;
+        Estado estado = null;
+        int id_estado = -1;
 
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stm = con.prepareStatement(LISTA);
@@ -77,8 +100,26 @@ public class CidadeDAOImpl implements CidadeDAO {
         while (rs.next()){
             int id = rs.getInt("id");
             String nome = rs.getString("nome");
-            Cidade cat = new Cidade(id, nome);
+            id_estado = rs.getInt("Id_estado");
 
+            PreparedStatement stm2 = con.prepareStatement(ESTADO);
+
+            stm2.setInt(1, id_estado);
+
+            ResultSet res2 = stm.executeQuery();
+
+            while (res2.next()) {
+                String nome_Estado;
+
+                nome_Estado = res2.getString("nome");
+
+                estado = new Estado(nome_Estado);
+            }
+
+            res2.close();
+            stm2.close();
+
+            Cidade cat = new Cidade(id, nome_cidade, estado);
             Cidades.add(cat);
         }
 
@@ -93,6 +134,10 @@ public class CidadeDAOImpl implements CidadeDAO {
     public Cidade buscaId(int id) throws SQLException{
 
         Cidade c = null;
+        String nome_cidade = "";
+        Cidade cidade = null;
+        Estado estado = null;
+        int id_estado = -1;
 
         Connection con = FabricaConexao.getConnection();
 
@@ -104,7 +149,26 @@ public class CidadeDAOImpl implements CidadeDAO {
 
         while(res.next()){
             String nome = res.getString("nome");
-            c = new Cidade(id, nome);
+            id_estado = res.getInt("Id_estado");
+
+            PreparedStatement stm2 = con.prepareStatement(ESTADO);
+
+            stm2.setInt(1, id_estado);
+
+            ResultSet res2 = stm.executeQuery();
+
+            while (res2.next()) {
+                String nome_Estado;
+
+                nome_Estado = res2.getString("nome");
+
+                estado = new Estado(nome_Estado);
+            }
+
+            res2.close();
+            stm2.close();
+
+            c = new Cidade(id, nome_cidade, estado);
         }
 
         res.close();

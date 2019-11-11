@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import sample.Browser;
 import sample.model.Cidade;
 import sample.model.Controle;
+import sample.model.Usuario;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -38,9 +39,13 @@ public class CadastraNormal extends Mensagem{
     private Label lbInfo;
 
     public void initialize() throws SQLException {
-        ObservableList cidades = FXCollections.observableArrayList();
-        cidades.addAll(Controle.getInstance().carregaCidades());
-        cbCidade.setItems(cidades);
+        ObservableList<Cidade> cidades = FXCollections.observableArrayList();
+
+        if(Controle.getInstance().carregaCidades() != null){
+            cidades.addAll(Controle.getInstance().carregaCidades());
+            cbCidade.setItems(cidades);
+        }
+
     }
 
     @FXML
@@ -53,10 +58,13 @@ public class CadastraNormal extends Mensagem{
             Aviso(Alert.AlertType.WARNING, "Preencha todos os dados exigidos!");
         }
         else {
-            String nome = tfNome.getText();
-            String email = tfEmail.getText();
-            String senha = pfSenha.getText();
-            Cidade cidade = cbCidade.getSelectionModel().getSelectedItem();
+            if (pfSenha.getText() == pfConfirmacao.getText()) {
+                String nome = tfNome.getText();
+                String email = tfEmail.getText();
+                String senha = pfSenha.getText();
+                Cidade cidade = cbCidade.getSelectionModel().getSelectedItem();
+                Usuario usuario = new Usuario(nome, email, senha, cidade);
+            }
         }
 
         Browser.loadWindows(Browser.EXIBECONDICOESNORMAL);
