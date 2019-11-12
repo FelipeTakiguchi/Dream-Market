@@ -6,14 +6,14 @@ public class UsuarioAdm extends Usuario{
     private String cpf;
 
 
-    public UsuarioAdm(String nome, String email, String senha, int id_Cidade, String telefone, String cpf) {
-        super(nome, email, senha, id_Cidade);
+    public UsuarioAdm(String nome, String email, String senha, Cidade cidade, String telefone, String cpf) {
+        super(nome, email, senha, cidade);
         this.telefone = telefone;
         this.cpf = cpf;
     }
 
-    public UsuarioAdm(int id, String nome, String email, String senha, int id_Cidade, String telefone, String cpf) {
-        super(id, nome, email, senha, id_Cidade);
+    public UsuarioAdm(int id, String nome, String email, String senha, Cidade cidade, String telefone, String cpf) {
+        super(id, nome, email, senha, cidade);
         this.telefone = telefone;
         this.cpf = cpf;
     }

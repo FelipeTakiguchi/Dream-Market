@@ -36,9 +36,13 @@ public class CadastraNormal extends Mensagem{
     private JFXComboBox<Cidade> cbCidade;
     @FXML
     private Label lbInfo;
+    @FXML
+    private JFXTextField tfEstado;
+    @FXML
+    private JFXTextField tfNovaCidade;
 
     public void initialize() throws SQLException {
-        ObservableList cidades = FXCollections.observableArrayList();
+        ObservableList<Cidade> cidades = FXCollections.observableArrayList();
         cidades.addAll(Controle.getInstance().carregaCidades());
         cbCidade.setItems(cidades);
     }
@@ -53,13 +57,19 @@ public class CadastraNormal extends Mensagem{
             Aviso(Alert.AlertType.WARNING, "Preencha todos os dados exigidos!");
         }
         else {
-            String nome = tfNome.getText();
-            String email = tfEmail.getText();
-            String senha = pfSenha.getText();
-            Cidade cidade = cbCidade.getSelectionModel().getSelectedItem();
-        }
+            if(pfSenha.getText().equals(pfConfirmacao.getText())) {
+                String nome = tfNome.getText();
+                String email = tfEmail.getText();
+                String senha = pfSenha.getText();
+                Cidade cidade = cbCidade.getSelectionModel().getSelectedItem();
 
-        Browser.loadWindows(Browser.EXIBECONDICOESNORMAL);
+                Browser.loadWindows(Browser.EXIBECONDICOESNORMAL);
+            }
+            else
+            {
+                Aviso(Alert.AlertType.WARNING, "As Senhas estão incorretas!");
+            }
+        }
     }
 
     public void voltar(ActionEvent event) throws IOException {
@@ -96,7 +106,7 @@ public class CadastraNormal extends Mensagem{
         lbInfo.setVisible(Boolean.FALSE);
     }
 
-    public void addCidade(MouseEvent mouseEvent) {
-
+    public void novaCidade(ActionEvent event) {
+        Browser.loadWindows(Browser.CADASTRACIDADE);
     }
 }

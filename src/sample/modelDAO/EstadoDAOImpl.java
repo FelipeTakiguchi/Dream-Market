@@ -12,14 +12,14 @@ import java.util.List;
 
 public class EstadoDAOImpl implements EstadoDAO {
 
-    private static String INSERE = "insert into Estado(id, cidade) values(?, ?)";
+    private static String INSERE = "insert into Estado(nome) values(?)";
     private static String VERIF = "select nome from Estado where nome like ?";
     private static String LISTA = "select * from Estado";
     private static String BUSCAID = "select * from Estado where id like ?";
 
     @Override
-    public Estado insere(int id, String nome) throws SQLException {
-        Estado e = new Estado(id, nome);
+    public Estado insere(String nome) throws SQLException {
+        Estado e = new Estado(nome);
         Connection con = FabricaConexao.getConnection();
 
 
@@ -50,7 +50,7 @@ public class EstadoDAOImpl implements EstadoDAO {
         ResultSet res = stm.executeQuery();
 
         while(res.next()){
-            int id = res.getInt("id");
+            int id = res.getInt("Id_estado");
             String nome = res.getString("nome");
             estado = new Estado(id, nome);
         }
@@ -72,7 +72,7 @@ public class EstadoDAOImpl implements EstadoDAO {
         ResultSet rs = stm.executeQuery();
 
         while (rs.next()){
-            int id = rs.getInt("id");
+            int id = rs.getInt("Id_estado");
             String nome = rs.getString("nome");
             Estado cat = new Estado(id, nome);
 

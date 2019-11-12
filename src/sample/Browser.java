@@ -17,6 +17,7 @@ public class Browser {
     public static final String CADASTRAADM= "/sample/view/cadastraAdm.fxml";
     public static final String EXIBECONDICOESNORMAL= "/sample/view/contratoNormal.fxml";
     public static final String EXIBECONDICOESADM= "/sample/view/contratoAdm.fxml";
+    public static final String CADASTRACIDADE= "/sample/view/adcionaCidade.fxml";
 
     private static Base controller;
 

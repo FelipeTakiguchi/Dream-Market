@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMouseClicked="#addCidade" prefHeight="360.0" prefWidth="640.0" styleClass="wallpaper3" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.CadastraNormal">
+<AnchorPane prefHeight="360.0" prefWidth="640.0" styleClass="wallpaper3" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.CadastraNormal">
    <children>
        <JFXButton layoutX="596.0" layoutY="10.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
            <cursor>
@@ -27,7 +27,7 @@
        </JFXButton>
       <JFXTextField fx:id="tfEmail" labelFloat="true" layoutX="91.0" layoutY="118.0" prefHeight="25.0" prefWidth="196.0" promptText="Email" />
       <JFXTextField fx:id="tfNome" labelFloat="true" layoutX="91.0" layoutY="52.0" prefHeight="25.0" prefWidth="196.0" promptText="Nome" />
-      <JFXPasswordField fx:id="pfConfirmacao" labelFloat="true" layoutX="358.0" layoutY="180.0" prefHeight="25.0" prefWidth="196.0" promptText="Confirmar Senha" />
+      <JFXPasswordField fx:id="pfConfirmacao" labelFloat="true" layoutX="91.0" layoutY="247.0" prefHeight="25.0" prefWidth="196.0" promptText="Confirmar Senha" />
       <JFXPasswordField fx:id="pfSenha" labelFloat="true" layoutX="91.0" layoutY="180.0" prefHeight="25.0" prefWidth="196.0" promptText="Senha" />
       <JFXComboBox fx:id="cbCidade" labelFloat="true" layoutX="358.0" layoutY="52.0" prefHeight="25.0" prefWidth="135.0" promptText="Cidade" />
       <JFXProgressBar layoutX="191.0" layoutY="31.0" prefHeight="3.0" prefWidth="259.0" progress="0.0" />
@@ -43,6 +43,6 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <JFXButton layoutX="502.0" layoutY="54.0" text="+" />
+      <JFXButton layoutX="502.0" layoutY="54.0" onAction="#novaCidade" text="+" />
    </children>
 </AnchorPane>

@@ -12,6 +12,7 @@ public class Controle {
     ProdutoDAO produtoDAO = new ProdutoDAOImpl();
     UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
     CidadeDAO cidadeDAO = new CidadeDAOImpl();
+    EstadoDAO estadoDAO = new EstadoDAOImpl();
 
     private ObservableList<Usuario> usuarios;
     private ObservableList<Produto> produtos;
@@ -55,5 +56,30 @@ public class Controle {
 
     public List<Cidade> carregaCidades() throws SQLException {
         return cidadeDAO.lista();
+    }
+
+    public Boolean addCidade(String cidade, Estado estado) throws SQLException {
+        try {
+            cidadeDAO.insere(cidade, estado);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public Estado verificaEstado(String nome) throws SQLException {
+        return estadoDAO.verif(nome);
+    }
+
+    public Estado registraNovoEstado(String nome) throws  SQLException{
+        return estadoDAO.insere(nome);
+    }
+
+    public List<Estado> listaEstados() throws SQLException{
+        return estadoDAO.lista();
+    }
+
+    public Cidade verificaCidade(String nomeCidade) throws SQLException {
+        return cidadeDAO.verif(nomeCidade);
     }
 }

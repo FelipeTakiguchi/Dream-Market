@@ -5,7 +5,7 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private int id_Cidade;
+    private Cidade cidade;
 
     public int getId() {
         return id;
@@ -39,26 +39,26 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public int getId_Cidade() {
-        return id_Cidade;
+    public Cidade getCidade() {
+        return cidade;
     }
 
-    public void setId_Cidade(int id_Cidade) {
-        this.id_Cidade = id_Cidade;
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 
-    public Usuario(String nome, String email, String senha, int id_Cidade) {
+    public Usuario(String nome, String email, String senha, Cidade cidade) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.id_Cidade = id_Cidade;
+        this.cidade = cidade;
     }
 
-    public Usuario(int id, String nome, String email, String senha, int id_Cidade) {
+    public Usuario(int id, String nome, String email, String senha, Cidade cidade) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.id_Cidade = id_Cidade;
+        this.cidade = cidade;
     }
 }
