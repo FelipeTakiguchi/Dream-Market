@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import sample.Browser;
 import sample.model.Controle;
 import sample.model.Estado;
 
@@ -46,6 +47,7 @@ public class AdcionaCidade extends Mensagem{
         if(estado != null && nomeCidade.length() > 3) {
             if (Controle.getInstance().verificaCidade(nomeCidade) == null) {
                 Controle.getInstance().addCidade(nomeCidade, estado);
+                Browser.loadWindows(Browser.CADASTRANORMAL);
             } else {
                 Aviso(Alert.AlertType.WARNING, "Essa cidade já existe");
             }
@@ -62,6 +64,8 @@ public class AdcionaCidade extends Mensagem{
 
         if(Controle.getInstance().verificaEstado(nome) == null){
             Controle.getInstance().registraNovoEstado(nome);
+            tfNovoEstado.setDisable(true);
+            btAddEstado.setDisable(false);
         }
     }
 

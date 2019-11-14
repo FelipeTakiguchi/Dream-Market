@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXScrollPane?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -10,10 +9,13 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper3" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Menu">
+<AnchorPane onScroll="#mudaOpcao" prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper3" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Menu">
    <children>
       <Label layoutX="221.0" layoutY="70.0" />
       <JFXButton layoutX="1212.0" layoutY="14.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
@@ -41,7 +43,36 @@
             <Insets />
          </opaqueInsets>
       </MenuBar>
-      <JFXButton layoutX="520.0" layoutY="243.0" text="Button" />
-      <JFXScrollPane layoutX="325.0" layoutY="193.0" />
+      <ImageView fx:id="ivOpcao1" fitHeight="90.0" fitWidth="102.0" layoutX="571.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/positivo.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ivOpcao2" fitHeight="84.0" fitWidth="102.0" layoutX="658.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/positivo.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ivOpcao3" fitHeight="90.0" fitWidth="109.0" layoutX="570.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/positivo.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ivOpcao5" fitHeight="90.0" fitWidth="109.0" layoutX="346.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/positivo.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ivOpcao4" fitHeight="90.0" fitWidth="102.0" layoutX="436.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/positivo.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ivOpcao6" fitHeight="90.0" fitWidth="102.0" layoutX="437.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/positivo.jpg" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="taDescricao" layoutX="451.0" layoutY="314.0" prefHeight="146.0" prefWidth="195.0" />
    </children>
 </AnchorPane>

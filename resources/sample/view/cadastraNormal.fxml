@@ -12,37 +12,43 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="360.0" prefWidth="640.0" styleClass="wallpaper3" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.CadastraNormal">
-    <children>
-        <JFXButton layoutX="596.0" layoutY="10.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-            <styleClass>
-                <String fx:value="botaoredondopreto" />
-                <String fx:value="corazul2" />
-            </styleClass>
-            <font>
-                <Font name="System Bold" size="13.0" />
-            </font>
-        </JFXButton>
-        <JFXTextField fx:id="tfEmail" labelFloat="true" layoutX="91.0" layoutY="118.0" prefHeight="25.0" prefWidth="196.0" promptText="Email" />
-        <JFXTextField fx:id="tfNome" labelFloat="true" layoutX="91.0" layoutY="52.0" prefHeight="25.0" prefWidth="196.0" promptText="Nome" />
-        <JFXPasswordField fx:id="pfConfirmacao" labelFloat="true" layoutX="91.0" layoutY="247.0" prefHeight="25.0" prefWidth="196.0" promptText="Confirmar Senha" />
-        <JFXPasswordField fx:id="pfSenha" labelFloat="true" layoutX="91.0" layoutY="180.0" prefHeight="25.0" prefWidth="196.0" promptText="Senha" />
-        <JFXComboBox fx:id="cbCidade" labelFloat="true" layoutX="358.0" layoutY="52.0" prefHeight="25.0" prefWidth="135.0" promptText="Cidade" />
-        <JFXProgressBar layoutX="191.0" layoutY="31.0" prefHeight="3.0" prefWidth="259.0" progress="0.0" />
-        <JFXButton layoutX="295.0" layoutY="297.0" onAction="#proximoPasso" text="Próximo" />
-        <JFXButton onAction="#voltar" text="Voltar" />
-        <Label layoutX="60.0" layoutY="54.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-        <Label layoutX="60.0" layoutY="180.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-        <Label layoutX="60.0" layoutY="112.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-        <Label layoutX="73.0" layoutY="234.0" onMouseEntered="#mostrarLabel" onMouseExited="#esconderLabel" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-        <Label layoutX="325.0" layoutY="180.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-        <Label fx:id="lbInfo" disable="true" layoutX="36.0" layoutY="322.0" text="Elementos de Preenchimento Obrigatório" visible="false">
-            <font>
-                <Font name="System Bold Italic" size="12.0" />
-            </font>
-        </Label>
-        <JFXButton layoutX="502.0" layoutY="54.0" onAction="#novaCidade" text="+" />
-    </children>
+   <children>
+      <JFXTextField fx:id="tfNome" labelFloat="true" layoutX="91.0" layoutY="52.0" prefHeight="25.0" prefWidth="196.0" promptText="Nome" />
+      <JFXComboBox fx:id="cbCidade" labelFloat="true" layoutX="358.0" layoutY="52.0" prefHeight="25.0" prefWidth="135.0" promptText="Cidade" />
+      <JFXButton layoutX="502.0" layoutY="54.0" onAction="#novaCidade" text="+" />
+      <JFXTextField fx:id="tfEmail" labelFloat="true" layoutX="91.0" layoutY="118.0" prefHeight="25.0" prefWidth="196.0" promptText="Email" />
+      <JFXPasswordField fx:id="pfSenha" labelFloat="true" layoutX="91.0" layoutY="180.0" prefHeight="25.0" prefWidth="196.0" promptText="Senha" />
+      <JFXPasswordField fx:id="pfConfirmacao" labelFloat="true" layoutX="91.0" layoutY="247.0" prefHeight="25.0" prefWidth="196.0" promptText="Confirmar Senha" />
+      <JFXButton layoutX="224.0" layoutY="311.0" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="346.0" layoutY="311.0" onAction="#proximoPasso" prefHeight="30.0" prefWidth="84.0" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Próximo">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font></JFXButton>
+      <JFXProgressBar layoutX="224.0" layoutY="24.0" prefWidth="192.0" progress="0.0" />
+      <Label layoutX="60.0" layoutY="54.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
+      <Label layoutX="60.0" layoutY="180.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
+      <Label layoutX="60.0" layoutY="112.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
+      <Label layoutX="60.0" layoutY="297.0" onMouseEntered="#mostrarLabel" onMouseExited="#esconderLabel" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
+      <Label layoutX="60.0" layoutY="247.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
+      <Label fx:id="lbInfo" disable="true" layoutX="36.0" layoutY="322.0" text="Elementos de Preenchimento Obrigatório" visible="false">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+       <JFXButton layoutX="596.0" layoutY="10.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+           <cursor>
+               <Cursor fx:constant="HAND" />
+           </cursor>
+           <styleClass>
+               <String fx:value="botaoredondopreto" />
+               <String fx:value="corazul3" />
+           </styleClass>
+           <font>
+               <Font name="System Bold" size="13.0" />
+           </font>
+       </JFXButton>
+   </children>
 </AnchorPane>

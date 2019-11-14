@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import sample.Browser;
 import sample.model.Cidade;
 import sample.model.Controle;
+import sample.model.Usuario;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -63,6 +64,9 @@ public class CadastraNormal extends Mensagem{
                 String senha = pfSenha.getText();
                 Cidade cidade = cbCidade.getSelectionModel().getSelectedItem();
 
+                Usuario usuario = new Usuario(nome, email, senha, cidade);
+
+                Controle.setUsuario(usuario);
                 Browser.loadWindows(Browser.EXIBECONDICOESNORMAL);
             }
             else

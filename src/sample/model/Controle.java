@@ -11,6 +11,7 @@ public class Controle {
 
     ProdutoDAO produtoDAO = new ProdutoDAOImpl();
     UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
+    UsuarioAdmDAO usuarioAdmDAO = new UsuarioAdmDAOImpl();
     CidadeDAO cidadeDAO = new CidadeDAOImpl();
     EstadoDAO estadoDAO = new EstadoDAOImpl();
 
@@ -46,12 +47,16 @@ public class Controle {
         return instance;
     }
 
-    public boolean verificaUsuario(String usuario, String senha) throws SQLException {
-        if(usuarioDAO.verif(usuario, senha) == null){
-            return false;
-        }
+    public Usuario addUsuario(Usuario usuario) throws SQLException{
+        return usuarioDAO.insere(usuario.getNome(), usuario.getEmail(), usuario.getSenha(), usuario.getCidade());
+    }
 
-        return true;
+    public Usuario verificaUsuarioNome(String nome, String senha) throws SQLException {
+        return usuarioDAO.verifNome(nome, senha);
+    }
+
+    public Usuario verificaUsuarioEmail(String email, String senha) throws SQLException {
+        return usuarioDAO.verifEmail(email, senha);
     }
 
     public List<Cidade> carregaCidades() throws SQLException {
@@ -81,5 +86,9 @@ public class Controle {
 
     public Cidade verificaCidade(String nomeCidade) throws SQLException {
         return cidadeDAO.verif(nomeCidade);
+    }
+
+    public UsuarioAdm addUsuarioAdm(UsuarioAdm usuarioAdm) throws SQLException {
+        return usuarioAdmDAO.insere(usuarioAdm.getNome(), usuarioAdm.getEmail(), usuarioAdm.getSenha(), usuarioAdm.getCidade(), usuarioAdm.getTelefone(), usuarioAdm.getCpf());
     }
 }

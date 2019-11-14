@@ -1,9 +1,6 @@
 package sample.modelDAO;
 
-import sample.model.Cidade;
-import sample.model.Estado;
-import sample.model.FabricaConexao;
-import sample.model.UsuarioAdm;
+import sample.model.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,28 +11,27 @@ import java.util.List;
 
 public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
 
-    private static String INSERE = "insert into UsuarioADM(nome, email, senha, id_Cidade, telefone, cpf) values(?, ?, ?, ?, ?, ?)";
+    private static String INSERE = "insert into UsuarioADM(id_usuario, telefone, cpf) values(?, ?, ?, ?, ?, ?)";
     private static String VERIF = "select * from UsuarioADM where nome like ? and senha like ?";
     private static String LISTA = "select * from UsuarioADM";
-    private static String BUSCAID = "select * from UsuarioADM where id like ?";
+    private static String BUSCAID = "select * from UsuarioADM where id_usuario like ?";
     private static String CIDADE = "select * from Cidade where Id_cidade = ?";
     private static String ESTADO = "select * from Estado where Id_estado = ?";
 
     @Override
     public UsuarioAdm insere(String nome, String email, String senha, Cidade cidade, String telefone, String cpf) throws SQLException {
+        Usuario usuario = new Usuario(nome, email, senha, cidade);
         UsuarioAdm u = new UsuarioAdm(nome, email, senha, cidade, telefone, cpf);
+        Controle.getInstance().addUsuario(usuario);
+        Usuario getId = Controle.getInstance().verificaUsuarioEmail(email, senha);
         Connection con = FabricaConexao.getConnection();
-
 
         PreparedStatement stm = con
                 .prepareStatement(INSERE);
 
-        stm.setString(1,u.getNome());
-        stm.setString(2,u.getEmail());
-        stm.setString(3,u.getSenha());
-        stm.setInt(4,u.getCidade().getId());
-        stm.setString(5,u.getTelefone());
-        stm.setString(6,u.getCpf());
+        stm.setInt(1,getId.getId());
+        stm.setString(2,u.getTelefone());
+        stm.setString(3,u.getCpf());
 
         stm.executeUpdate();
 

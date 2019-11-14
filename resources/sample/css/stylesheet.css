@@ -7,6 +7,10 @@
     -fx-padding: 0;
 }
 
+.labelpositivo{
+    -fx-graphic: url("/sample/icons/positivo.jpg");
+}
+
 .corazul5{
     -fx-background-color: #051923;
 }
@@ -29,4 +33,12 @@
 
 .corverdeclaro{
     -fx-background-color: #56dd47;
+}
+
+.corverdelima{
+    -fx-background-color: #1FF021;
+}
+
+.corazulclaro{
+    -fx-background-color: #B6FFF8;
 }

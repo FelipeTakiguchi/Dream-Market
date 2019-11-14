@@ -13,10 +13,10 @@ import java.util.List;
 
 public class CidadeDAOImpl implements CidadeDAO {
 
-    private static String INSERE = "insert into Cidade(cidade, Id_estado) values(?, ?)";
+    private static String INSERE = "insert into Cidade(Nome, Id_estado) values(?, ?)";
     private static String VERIF = "select * from Cidade where nome like ?";
     private static String LISTA = "select * from Cidade";
-    private static String BUSCAID = "select * from Cidade where id like ?";
+    private static String BUSCAID = "select * from Cidade where id_cidade like ?";
     private static String ESTADO = "select * from Estado where Id_estado = ?";
 
     @Override
@@ -28,8 +28,11 @@ public class CidadeDAOImpl implements CidadeDAO {
         PreparedStatement stm = con
                 .prepareStatement(INSERE);
 
+        System.out.println("Entrei");
+        System.out.println(c.getNome()+c.getEstado().getId());
+
         stm.setString(1,c.getNome());
-        stm.setInt(1,c.getEstado().getId());
+        stm.setInt(2,c.getEstado().getId());
         stm.executeUpdate();
 
         stm.close();

@@ -5,7 +5,6 @@ public class UsuarioAdm extends Usuario{
     private String telefone;
     private String cpf;
 
-
     public UsuarioAdm(String nome, String email, String senha, Cidade cidade, String telefone, String cpf) {
         super(nome, email, senha, cidade);
         this.telefone = telefone;

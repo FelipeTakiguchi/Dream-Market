@@ -9,27 +9,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="551.0" maxWidth="1000.0" minHeight="720.0" minWidth="1280.0" prefHeight="400.0" prefWidth="600.0" styleClass="wallpaper2" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Login">
-    <JFXButton layoutX="1212.0" layoutY="14.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
-        <cursor>
-            <Cursor fx:constant="HAND" />
-        </cursor>
-        <styleClass>
-            <String fx:value="botaoredondopreto" />
-            <String fx:value="corazul2" />
-        </styleClass>
-        <font>
-            <Font name="System Bold" size="13.0" />
-        </font>
-    </JFXButton>
+<AnchorPane maxHeight="551.0" maxWidth="1000.0" minHeight="720.0" minWidth="1280.0" onKeyPressed="#verificaTecla" prefHeight="400.0" prefWidth="600.0" styleClass="wallpaper2" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Login">
+   <JFXTextField fx:id="tfEmail" labelFloat="true" layoutX="541.0" layoutY="271.0" prefHeight="30.0" prefWidth="250.0" promptText="Email" />
+   <JFXPasswordField fx:id="pfSenha" labelFloat="true" layoutX="541.0" layoutY="321.0" prefHeight="30.0" prefWidth="250.0" promptText="Senha" />
    <Label layoutX="573.0" layoutY="372.0" text="Não possui uma conta?" />
    <Label layoutX="698.0" layoutY="372.0" onMouseClicked="#cadastrarUsuario" text="Crie agora!" textFill="#00ccffe2">
       <cursor>
          <Cursor fx:constant="OPEN_HAND" />
       </cursor>
    </Label>
-   <JFXTextField fx:id="tfEmail" labelFloat="true" layoutX="541.0" layoutY="271.0" prefHeight="30.0" prefWidth="250.0" promptText="Email" />
-   <JFXPasswordField fx:id="pfSenha" labelFloat="true" layoutX="541.0" layoutY="321.0" prefHeight="30.0" prefWidth="250.0" promptText="Senha" />
    <JFXButton layoutX="642.0" layoutY="404.0" onAction="#logarUsuario" text="Entrar" />
+    <JFXButton layoutX="1236.0" layoutY="14.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <styleClass>
+            <String fx:value="botaoredondopreto" />
+            <String fx:value="corazul3" />
+        </styleClass>
+        <font>
+            <Font name="System Bold" size="13.0" />
+        </font>
+    </JFXButton>
 
 </AnchorPane>

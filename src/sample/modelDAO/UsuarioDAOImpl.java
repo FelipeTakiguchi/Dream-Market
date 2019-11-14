@@ -14,11 +14,12 @@ import java.util.List;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
 
-    private static String INSERE = "insert into usuario(nome, email, senha, id_Cidade) values(?, ?, ?, ?)";
-    private static String VERIF = "select nome from usuario where nome like ? and senha like ?";
-    private static String LISTA = "select * from usuario";
-    private static String BUSCAID = "select * from usuario where id like ?";
-    private static String CIDADE = "select * from cidade where Id_cidade = ?";
+    private static String INSERE = "insert into Usuario(nome, email, senha, id_Cidade) values(?, ?, ?, ?)";
+    private static String VERIF = "select * from Usuario where email like ? and senha like ?";
+    private static String VERIFNOME = "select * from Usuario where nome like ? and senha like ?";
+    private static String LISTA = "select * from Usuario";
+    private static String BUSCAID = "select * from Usuario where id like ?";
+    private static String CIDADE = "select * from Cidade where Id_cidade = ?";
     private static String ESTADO = "select * from Estado where Id_estado = ?";
 
     @Override
@@ -44,7 +45,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
     @Override
-    public Usuario verif(String Nome, String Senha) throws SQLException {
+    public Usuario verifEmail(String Email, String Senha) throws SQLException {
 
         Usuario u = null;
         String nome = "";
@@ -57,7 +58,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stm = con.prepareStatement(VERIF);
-        stm.setString(1,Nome);
+        stm.setString(1,Email);
         stm.setString(2,Senha);
         ResultSet res = stm.executeQuery();
 
@@ -170,6 +171,73 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         rs.close();
 
         return Usuarios;
+    }
+
+    @Override
+    public Usuario verifNome(String Nome, String Senha) throws SQLException {
+
+        Usuario u = null;
+        String nome = "";
+        String email = "";
+        String senha = "";
+        int id_cidade = -1;
+        Cidade cidade;
+        String nome_cidade = "";
+        int id_estado = -1;
+
+        Connection con = FabricaConexao.getConnection();
+        PreparedStatement stm = con.prepareStatement(VERIFNOME);
+        stm.setString(1,Nome);
+        stm.setString(2,Senha);
+        ResultSet res = stm.executeQuery();
+
+        while(res.next()){
+            nome = res.getString("nome");
+            email = res.getString("email");
+            senha = res.getString("senha");
+            id_cidade = res.getInt("id_Cidade");
+
+        }
+
+        res.close();
+        stm.close();
+
+        PreparedStatement stm2 = con.prepareStatement(CIDADE);
+
+        stm2.setInt(1, id_cidade);
+
+        ResultSet res2 = stm2.executeQuery();
+
+        while (res2.next()) {
+            nome_cidade = res2.getString("nome");
+            id_estado = res2.getInt("Id_estado");
+        }
+
+        res2.close();
+        stm2.close();
+
+        PreparedStatement stm3 = con.prepareStatement(ESTADO);
+
+        stm3.setInt(1, id_estado);
+
+        ResultSet res3 = stm3.executeQuery();
+
+        while (res3.next()) {
+            String nome_Estado;
+
+            nome_Estado = res3.getString("nome");
+
+            Estado estado = new Estado(nome_Estado);
+            cidade = new Cidade(nome_cidade, estado);
+            u = new Usuario(nome, email, senha, cidade);
+        }
+
+        res3.close();
+        stm2.close();
+
+        con.close();
+
+        return u;
     }
 
     @Override

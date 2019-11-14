@@ -17,7 +17,12 @@ public class Browser {
     public static final String CADASTRAADM= "/sample/view/cadastraAdm.fxml";
     public static final String EXIBECONDICOESNORMAL= "/sample/view/contratoNormal.fxml";
     public static final String EXIBECONDICOESADM= "/sample/view/contratoAdm.fxml";
+    public static final String CONCLUINORMAL= "/sample/view/concluidoNormal.fxml";
+    public static final String CONCLUIDOADM= "/sample/view/concluidoNormal.fxml";
     public static final String CADASTRACIDADE= "/sample/view/adcionaCidade.fxml";
+    public static final String COMPARAITENS= "/sample/view/comparaItens.fxml";
+    public static final String CRIALISTA= "/sample/view/criaLista.fxml";
+    public static final String GERARLISTA= "/sample/view/gerarLista.fxml";
 
     private static Base controller;
 

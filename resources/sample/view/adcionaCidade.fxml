@@ -11,25 +11,25 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.AdcionaCidade">
    <children>
-       <JFXButton layoutX="596.0" layoutY="10.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+      <JFXComboBox fx:id="cbEstado" layoutX="91.0" layoutY="136.0" onAction="#desabilitaCidade" prefHeight="38.0" prefWidth="160.0" />
+      <JFXButton layoutX="259.0" layoutY="149.0" onAction="#novoEstado" prefHeight="25.0" prefWidth="27.0" text="+" />
+      <JFXTextField fx:id="tfNovoEstado" disable="true" layoutX="301.0" layoutY="144.0" prefHeight="30.0" prefWidth="160.0" promptText="Novo Estado" />
+      <JFXButton fx:id="btAddEstado" disable="true" layoutX="472.0" layoutY="149.0" onAction="#addEstado" text="Add" />
+      <JFXTextField fx:id="tfNovaCidade" disable="true" layoutX="91.0" layoutY="213.0" onKeyPressed="#desabilitaBt" prefHeight="38.0" prefWidth="160.0" promptText="Nova Cidade" />
+      <JFXButton layoutX="197.0" layoutY="302.0" text="Cancelar" />
+      <JFXButton fx:id="btAddCidade" disable="true" layoutX="339.0" layoutY="302.0" onAction="#confirmaAdd" prefHeight="30.0" prefWidth="60.0" text="Add" />
+       <JFXButton layoutX="563.0" layoutY="7.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
            <cursor>
                <Cursor fx:constant="HAND" />
            </cursor>
            <styleClass>
                <String fx:value="botaoredondopreto" />
-               <String fx:value="corazul2" />
+               <String fx:value="corazul3" />
            </styleClass>
            <font>
                <Font name="System Bold" size="13.0" />
            </font>
        </JFXButton>
-      <JFXTextField fx:id="tfNovaCidade" disable="true" layoutX="91.0" layoutY="213.0" onInputMethodTextChanged="#desabilitaBt" prefHeight="38.0" prefWidth="160.0" promptText="Nova Cidade" />
-      <JFXButton fx:id="btAddCidade" disable="true" layoutX="339.0" layoutY="302.0" onAction="#confirmaAdd" prefHeight="30.0" prefWidth="60.0" text="Add" />
-      <JFXComboBox fx:id="cbEstado" layoutX="91.0" layoutY="136.0" onAction="#desabilitaCidade" prefHeight="38.0" prefWidth="160.0" />
-      <JFXButton layoutX="259.0" layoutY="149.0" onAction="#novoEstado" prefHeight="25.0" prefWidth="27.0" text="+" />
-      <JFXButton layoutX="197.0" layoutY="302.0" text="Cancelar" />
-      <JFXButton fx:id="btAddEstado" disable="true" layoutX="472.0" layoutY="149.0" onAction="#addEstado" text="Add" />
-      <JFXTextField fx:id="tfNovoEstado" disable="true" layoutX="301.0" layoutY="144.0" prefHeight="30.0" prefWidth="160.0" promptText="Nova Cidade" text="Novo Estado" />
       <Label layoutX="203.0" layoutY="22.0" prefHeight="53.0" prefWidth="194.0" text="Nova Cidade">
          <font>
             <Font name="System Bold Italic" size="32.0" />
