@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.PesquisaItens">
+
+    <JFXButton fx:id="btFechar" layoutX="1236.0" layoutY="14.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <styleClass>
+            <String fx:value="botaoredondopreto" />
+            <String fx:value="corazul2" />
+        </styleClass>
+        <font>
+            <Font name="System Bold" size="13.0" />
+        </font>
+    </JFXButton>
+   <TableView fx:id="tvProduto" layoutX="109.0" layoutY="157.0" onSort="#mostraDescricao" prefHeight="430.0" prefWidth="700.0">
+     <columns>
+       <TableColumn prefWidth="75.0" text="Nome" />
+       <TableColumn prefWidth="75.0" text="Marca" />
+         <TableColumn prefWidth="75.0" text="Valor" />
+         <TableColumn prefWidth="75.0" text="Comércio" />
+         <TableColumn prefWidth="75.0" text="Cidade" />
+         <TableColumn prefWidth="75.0" text="Estado" />
+         <TableColumn prefWidth="115.0" text="FRAIFRAI CUZÃO" />
+         <TableColumn prefWidth="68.0" text="Usuário" />
+     </columns>
+   </TableView>
+   <TextArea fx:id="taDescricao" disable="true" layoutX="888.0" layoutY="157.0" prefHeight="430.0" prefWidth="300.0" promptText="                                                       Descrição">
+      <font>
+         <Font name="System Bold Italic" size="36.0" />
+      </font>
+   </TextArea>
+</AnchorPane>

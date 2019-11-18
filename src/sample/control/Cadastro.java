@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import sample.Browser;
 import sample.InternalWindow;
@@ -65,8 +66,8 @@ public class Cadastro {
     }
 
     public void criaNormal(ActionEvent event) throws IOException {
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        Browser.loadWindows(Browser.CADASTRANORMAL);
+        Stage stage = new Stage();
+        stage.getScene();
         FXMLLoader loader = new FXMLLoader();
 
         Pane mainPane = (Pane) loader.load(
@@ -79,14 +80,14 @@ public class Cadastro {
 
         Browser.setController(controller);
         Browser.loadWindows(Browser.CADASTRANORMAL);
-
         stage.setScene(new Scene(mainPane, 640, 360));
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
     }
 
     public void criaAdministrador(ActionEvent event) throws IOException {
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        Browser.loadWindows(Browser.CADASTRANORMAL);
+        Stage stage = new Stage();
+        stage.getScene();
         FXMLLoader loader = new FXMLLoader();
 
         Pane mainPane = (Pane) loader.load(
@@ -99,8 +100,8 @@ public class Cadastro {
 
         Browser.setController(controller);
         Browser.loadWindows(Browser.CADASTRAADM);
-
         stage.setScene(new Scene(mainPane, 640, 360));
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
     }
 

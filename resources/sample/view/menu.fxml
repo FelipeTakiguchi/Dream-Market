@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDialog?>
 <?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -10,15 +12,13 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane onScroll="#mudaOpcao" prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper3" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Menu">
    <children>
       <Label layoutX="221.0" layoutY="70.0" />
-      <JFXButton layoutX="1212.0" layoutY="14.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+      <JFXButton layoutX="1236.0" layoutY="14.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
           <cursor>
               <Cursor fx:constant="HAND" />
           </cursor>
@@ -43,36 +43,69 @@
             <Insets />
          </opaqueInsets>
       </MenuBar>
-      <ImageView fx:id="ivOpcao1" fitHeight="90.0" fitWidth="102.0" layoutX="571.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/positivo.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="ivOpcao2" fitHeight="84.0" fitWidth="102.0" layoutX="658.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/positivo.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="ivOpcao3" fitHeight="90.0" fitWidth="109.0" layoutX="570.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/positivo.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="ivOpcao5" fitHeight="90.0" fitWidth="109.0" layoutX="346.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/positivo.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="ivOpcao4" fitHeight="90.0" fitWidth="102.0" layoutX="436.0" layoutY="477.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/positivo.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="ivOpcao6" fitHeight="90.0" fitWidth="102.0" layoutX="437.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/positivo.jpg" />
-         </image>
-      </ImageView>
-      <TextArea fx:id="taDescricao" layoutX="451.0" layoutY="314.0" prefHeight="146.0" prefWidth="195.0" />
+      <TextArea fx:id="taDescricao" editable="false" layoutX="550.0" layoutY="300.0" prefHeight="150.0" prefWidth="180.0" text="&#10;&#10;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextArea>
+      <JFXButton fx:id="btUm" layoutX="710.0" layoutY="150.0" onAction="#opcaoPesquisa" prefHeight="80.0" prefWidth="80.0" style="border: 10;">
+         <stylesheets>
+            <URL value="@../css/icons.css" />
+            <URL value="@../css/stylesheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="labelpesquisa" />
+            <String fx:value="botao" />
+         </styleClass></JFXButton>
+      <JFXButton fx:id="btQuatro" layoutX="510.0" layoutY="505.0" onAction="#opcaoPdf" prefHeight="80.0" prefWidth="80.0">
+         <stylesheets>
+            <URL value="@../css/icons.css" />
+            <URL value="@../css/stylesheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="labelpdf" />
+            <String fx:value="botao" />
+         </styleClass>
+      </JFXButton>
+      <JFXButton fx:id="btTres" layoutX="710.0" layoutY="505.0" onAction="#opcaoLista" prefHeight="80.0" prefWidth="80.0">
+         <stylesheets>
+            <URL value="@../css/icons.css" />
+            <URL value="@../css/stylesheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="labellista" />
+            <String fx:value="botao" />
+         </styleClass>
+      </JFXButton>
+      <JFXButton fx:id="btSeis" layoutX="510.0" layoutY="150.0" onAction="#opcaoLogoff" prefHeight="80.0" prefWidth="80.0">
+         <stylesheets>
+            <URL value="@../css/icons.css" />
+            <URL value="@../css/stylesheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="labellogout" />
+            <String fx:value="botao" />
+         </styleClass>
+      </JFXButton>
+      <JFXButton fx:id="btDois" layoutX="800.0" layoutY="340.0" onAction="#opcaoAnalise" prefHeight="80.0" prefWidth="80.0">
+         <stylesheets>
+            <URL value="@../css/icons.css" />
+            <URL value="@../css/stylesheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="labelcomparacao" />
+            <String fx:value="botao" />
+         </styleClass>
+      </JFXButton>
+      <JFXButton fx:id="btCinco" layoutX="390.0" layoutY="340.0" onAction="#opcaoAdm" prefHeight="80.0" prefWidth="80.0">
+         <stylesheets>
+            <URL value="@../css/icons.css" />
+            <URL value="@../css/stylesheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="labeladm" />
+            <String fx:value="botao" />
+         </styleClass>
+      </JFXButton>
+      <JFXDialog fx:id="jfxDialog" layoutX="33.0" layoutY="126.0" prefHeight="129.0" prefWidth="139.0" />
    </children>
 </AnchorPane>

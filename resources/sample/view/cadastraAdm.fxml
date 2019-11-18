@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.CadastraAdm">
     <children>
-        <JFXButton layoutX="596.0" layoutY="10.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+        <JFXButton layoutX="596.0" layoutY="10.0" fx:id="btFechar" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
@@ -42,18 +42,18 @@
       <JFXTextField fx:id="tfCpf" layoutX="358.0" layoutY="180.0" prefHeight="25.0" prefWidth="196.0" promptText="CPF" />
       <JFXTextField fx:id="tfTelefone" labelFloat="true" layoutX="358.0" layoutY="118.0" prefHeight="25.0" prefWidth="196.0" promptText="Telefone" />
       <JFXButton layoutX="512.0" layoutY="64.0" onAction="#novaCidade" text="+" />
-      <Label layoutX="66.0" layoutY="52.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-      <Label layoutX="333.0" layoutY="65.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-      <Label layoutX="333.0" layoutY="118.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-      <Label layoutX="333.0" layoutY="180.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-      <Label layoutX="66.0" layoutY="118.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-      <Label layoutX="66.0" layoutY="180.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-      <Label layoutX="66.0" layoutY="238.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
+      <Label layoutX="66.0" layoutY="52.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
+      <Label layoutX="333.0" layoutY="65.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
+      <Label layoutX="333.0" layoutY="118.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
+      <Label layoutX="333.0" layoutY="180.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
+      <Label layoutX="66.0" layoutY="118.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
+      <Label layoutX="66.0" layoutY="180.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
+      <Label layoutX="66.0" layoutY="238.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
       <Label fx:id="lbInfo" disable="true" layoutX="46.0" layoutY="332.0" text="Elementos de Preenchimento Obrigatório" visible="false">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="66.0" layoutY="277.0" onMouseEntered="#mostrarLabel" onMouseExited="#esconderLabel" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
+      <Label layoutX="66.0" layoutY="277.0" onMouseEntered="#mostrarLabel" onMouseExited="#esconderLabel" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
     </children>
 </AnchorPane>

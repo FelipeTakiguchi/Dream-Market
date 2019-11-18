@@ -1,0 +1,38 @@
+.labelpdf{
+    -fx-graphic: url("/sample/icons/pdf.jpeg");
+    -fx-padding: 0;
+}
+
+.labellogout{
+    -fx-graphic: url("/sample/icons/logout.jpeg");
+    -fx-padding: 0;
+}
+
+.labelcomparacao{
+    -fx-graphic: url("/sample/icons/analise.jpeg");
+    -fx-padding: 0;
+}
+
+.labellista{
+    -fx-graphic: url("/sample/icons/lista.jpeg");
+    -fx-padding: 0;
+}
+
+.labeladm{
+    -fx-graphic: url("/sample/icons/administrador.jpeg");
+    -fx-padding: 0;
+}
+
+.labelpesquisa{
+    -fx-graphic: url("/sample/icons/pesquisa.jpeg");
+    -fx-padding: 0;
+}
+
+.labelasterisco{
+    -fx-graphic: url("/sample/icons/asterisco.png");
+    -fx-padding: 0;
+}
+
+.labelpositivo{
+    -fx-graphic: url("/sample/icons/positivo.jpg");
+}

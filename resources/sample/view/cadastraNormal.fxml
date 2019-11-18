@@ -28,17 +28,17 @@
             <Font name="System Bold Italic" size="15.0" />
          </font></JFXButton>
       <JFXProgressBar layoutX="224.0" layoutY="24.0" prefWidth="192.0" progress="0.0" />
-      <Label layoutX="60.0" layoutY="54.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-      <Label layoutX="60.0" layoutY="180.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-      <Label layoutX="60.0" layoutY="112.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-      <Label layoutX="60.0" layoutY="297.0" onMouseEntered="#mostrarLabel" onMouseExited="#esconderLabel" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
-      <Label layoutX="60.0" layoutY="247.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/stylesheet.css" />
+      <Label layoutX="60.0" layoutY="54.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
+      <Label layoutX="60.0" layoutY="180.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
+      <Label layoutX="60.0" layoutY="112.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
+      <Label layoutX="60.0" layoutY="297.0" onMouseEntered="#mostrarLabel" onMouseExited="#esconderLabel" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
+      <Label layoutX="60.0" layoutY="247.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
       <Label fx:id="lbInfo" disable="true" layoutX="36.0" layoutY="322.0" text="Elementos de Preenchimento Obrigatório" visible="false">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-       <JFXButton layoutX="596.0" layoutY="10.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+       <JFXButton layoutX="596.0" layoutY="10.0" fx:id="btFechar" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
            <cursor>
                <Cursor fx:constant="HAND" />
            </cursor>

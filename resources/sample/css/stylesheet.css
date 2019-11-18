@@ -2,13 +2,13 @@
     -fx-background-radius: 100;
 }
 
-.labelasterisco{
-    -fx-graphic: url("/sample/icons/asterisco.png");
-    -fx-padding: 0;
-}
-
-.labelpositivo{
-    -fx-graphic: url("/sample/icons/positivo.jpg");
+.botao{
+    -fx-padding: 10 10 10 10;
+        -fx-border-color: #e2e2e2;
+        -fx-border-width: 2;
+        -fx-background-radius: 0;
+        -fx-background-color: #1d1d1d;
+        -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
 .corazul5{

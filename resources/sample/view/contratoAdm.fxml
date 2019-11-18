@@ -17,7 +17,7 @@
                 <JFXTextArea text="Ao aceitar os termos o usuário está ciente de que:&#10;&#10;I- As informações a serem compartilhadas devem ser verdadeiros.&#10;II- Os demais usuários têm direito de avaliar suas postagens.&#10;III- A partir dos seus compartilhamentos seu perfil se torna visível para os demais usuários.&#10;IV- Caso o usuário não possua uma avaliação relativamente positiva, será enviado um aviso de exclusão da conta, caso não seja provado sua eficiencia.&#10;V- Quaisquer problemas ou erros devem ser relatados tendo em vista o foco no assunto envolvido.&#10;" />
             </children>
         </JFXScrollPane>
-        <JFXButton layoutX="237.0" layoutY="309.0" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
+        <JFXButton layoutX="237.0" layoutY="309.0" fx:id="btFechar" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font></JFXButton>

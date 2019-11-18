@@ -1,5 +1,6 @@
 package sample.control;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -26,6 +27,8 @@ import java.sql.SQLException;
 public class CadastraNormal extends Mensagem{
 
     @FXML
+    private JFXButton btFechar;
+    @FXML
     private JFXTextField tfNome;
     @FXML
     private JFXTextField tfEmail;
@@ -50,7 +53,8 @@ public class CadastraNormal extends Mensagem{
 
     @FXML
     void acaoFechar(){
-        System.exit(0);
+        Stage stage = (Stage) btFechar.getScene().getWindow();
+        stage.close();
     }
 
     public void proximoPasso(ActionEvent event) {

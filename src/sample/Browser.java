@@ -20,6 +20,7 @@ public class Browser {
     public static final String CONCLUINORMAL= "/sample/view/concluidoNormal.fxml";
     public static final String CONCLUIDOADM= "/sample/view/concluidoNormal.fxml";
     public static final String CADASTRACIDADE= "/sample/view/adcionaCidade.fxml";
+    public static final String PESQUISA= "/sample/view/pesquisaItens.fxml";
     public static final String COMPARAITENS= "/sample/view/comparaItens.fxml";
     public static final String CRIALISTA= "/sample/view/criaLista.fxml";
     public static final String GERARLISTA= "/sample/view/gerarLista.fxml";
