@@ -12,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -72,8 +74,26 @@ public class CadastraAdm extends Mensagem {
 
                 UsuarioAdm usuarioAdm = new UsuarioAdm(nome, email, senha, cidade, telefone, cpf);
 
-                Controle.setUsuario(usuarioAdm);
-                Browser.loadWindows(Browser.EXIBECONDICOESADM);
+                Controle.setUsuarioAdm(usuarioAdm);
+//
+//                Stage stage = (Stage) btFechar.getScene().getWindow();
+//                stage.close();
+                System.out.println(Controle.getUsuarioAdm());
+
+                Dialog<ButtonType> dialog = new Dialog<>();
+
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource(Browser.EXIBECONDICOESADM));
+
+                try{
+                    Pane conteudo = loader.load();
+
+                    dialog.getDialogPane().setContent(conteudo);
+
+                    dialog.showAndWait();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
             }
             else
             {

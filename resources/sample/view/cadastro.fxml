@@ -57,6 +57,5 @@
       </JFXButton>
       <TextArea fx:id="taNormal" disable="true" layoutX="371.0" layoutY="88.0" prefHeight="66.0" prefWidth="324.0" text="O usuário normal pode apenas verificar os produtos &#10;pertencentes a determinados mercados, comparar preços,&#10;criar listas e gerar um documento da lista." visible="false" />
       <TextArea fx:id="taAdm" disable="true" layoutX="716.0" layoutY="88.0" prefHeight="66.0" prefWidth="344.0" text="O usuário administrador, pode efetuar todas as operações de &#10;um usuário normal, e também, cooperar compartilhando&#10; informações dos produtos e sendo avaliado pelos demais." visible="false" />
-      <JFXButton layoutY="2.0" onAction="#voltar" text="Voltar" />
    </children>
 </AnchorPane>

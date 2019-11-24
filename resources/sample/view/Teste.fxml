@@ -6,11 +6,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<DialogPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.control.Cadastro"
+            fx:controller="sample.control.Teste"
             prefHeight="400.0" prefWidth="600.0">
-    <children>
-        <Label text="TESTE" layoutX="200" layoutY="200"/>
-    </children>
-</AnchorPane>
+
+    <content>
+        <TextField fx:id="tfTeste"/>
+    </content>
+
+
+</DialogPane>

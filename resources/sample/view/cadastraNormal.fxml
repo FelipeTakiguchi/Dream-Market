@@ -19,11 +19,7 @@
       <JFXTextField fx:id="tfEmail" labelFloat="true" layoutX="91.0" layoutY="118.0" prefHeight="25.0" prefWidth="196.0" promptText="Email" />
       <JFXPasswordField fx:id="pfSenha" labelFloat="true" layoutX="91.0" layoutY="180.0" prefHeight="25.0" prefWidth="196.0" promptText="Senha" />
       <JFXPasswordField fx:id="pfConfirmacao" labelFloat="true" layoutX="91.0" layoutY="247.0" prefHeight="25.0" prefWidth="196.0" promptText="Confirmar Senha" />
-      <JFXButton layoutX="224.0" layoutY="311.0" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
-         <font>
-            <Font name="System Bold Italic" size="15.0" />
-         </font></JFXButton>
-      <JFXButton layoutX="346.0" layoutY="311.0" onAction="#proximoPasso" prefHeight="30.0" prefWidth="84.0" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Próximo">
+      <JFXButton layoutX="278.0" layoutY="307.0" onAction="#proximoPasso" prefHeight="30.0" prefWidth="84.0" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Próximo">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font></JFXButton>
@@ -38,17 +34,5 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-       <JFXButton layoutX="596.0" layoutY="10.0" fx:id="btFechar" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
-           <cursor>
-               <Cursor fx:constant="HAND" />
-           </cursor>
-           <styleClass>
-               <String fx:value="botaoredondopreto" />
-               <String fx:value="corazul3" />
-           </styleClass>
-           <font>
-               <Font name="System Bold" size="13.0" />
-           </font>
-       </JFXButton>
    </children>
 </AnchorPane>

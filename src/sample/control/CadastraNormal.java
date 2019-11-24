@@ -12,6 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -81,22 +83,20 @@ public class CadastraNormal extends Mensagem{
     }
 
     public void voltar(ActionEvent event) throws IOException {
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        Dialog<ButtonType> dialog = new Dialog<>();
+
         FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(Browser.CADASTRAUSUARIO));
 
-        Pane mainPane = (Pane) loader.load(
-                getClass().getResourceAsStream(
-                        Browser.BASE
-                )
-        );
+        try{
+            Pane conteudo = loader.load();
 
-        Base controller = loader.getController();
+            dialog.getDialogPane().setContent(conteudo);
 
-        Browser.setController(controller);
-        Browser.loadWindows(Browser.CADASTRAUSUARIO);
-
-        stage.setScene(new Scene(mainPane, 1280, 720));
-        stage.show();
+            dialog.showAndWait();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public void mostrarLabel(MouseEvent event) {

@@ -18,6 +18,8 @@ public class ConcluidoAdm {
     }
 
     public void logarConta(ActionEvent event) {
+        Stage stage = (Stage) btFechar.getScene().getWindow();
+        stage.close();
         Browser.loadWindows(Browser.MENU);
     }
 }

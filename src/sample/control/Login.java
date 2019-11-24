@@ -37,7 +37,18 @@ public class Login extends Mensagem{
             Usuario verificacao2 = Controle.getInstance().verificaUsuarioNome(tfEmail.getText(), pfSenha.getText());
 
             if(verificacao != null || verificacao2 != null){
+
+                //chama Task Logar
+
+                //mostra uma barra de progresso
                 Controle.setUsuario(Objects.requireNonNullElse(verificacao, verificacao2));
+
+                if(verificacao != null){
+                    Controle.setUsuario(verificacao);
+                }
+                else{
+                    Controle.setUsuario(verificacao2);
+                }
 
                 Browser.loadWindows(Browser.MENU);
             }

@@ -23,16 +23,15 @@
             <Font name="System Bold" size="13.0" />
         </font>
     </JFXButton>
-   <TableView fx:id="tvProduto" layoutX="109.0" layoutY="157.0" onSort="#mostraDescricao" prefHeight="430.0" prefWidth="700.0">
+   <TableView fx:id="tvItem" layoutX="109.0" layoutY="157.0" onMouseClicked="#mostraDescricao" prefHeight="430.0" prefWidth="700.0">
      <columns>
-       <TableColumn prefWidth="75.0" text="Nome" />
-       <TableColumn prefWidth="75.0" text="Marca" />
-         <TableColumn prefWidth="75.0" text="Valor" />
-         <TableColumn prefWidth="75.0" text="Comércio" />
-         <TableColumn prefWidth="75.0" text="Cidade" />
-         <TableColumn prefWidth="75.0" text="Estado" />
-         <TableColumn prefWidth="115.0" text="FRAIFRAI CUZÃO" />
-         <TableColumn prefWidth="68.0" text="Usuário" />
+         <TableColumn fx:id="tcItemNome" prefWidth="108.0" text="Nome" />
+         <TableColumn fx:id="tcItemMarca" prefWidth="90.0" text="Marca" />
+         <TableColumn fx:id="tcItemValor" prefWidth="68.0" text="Valor" />
+         <TableColumn fx:id="tcItemComercio" prefWidth="103.0" text="Comércio" />
+         <TableColumn fx:id="tcItemCidade" prefWidth="101.0" text="Cidade" />
+         <TableColumn fx:id="tcItemEstado" prefWidth="98.0" text="Estado" />
+         <TableColumn fx:id="tcItemUsuario" prefWidth="131.0" text="Usuário" />
      </columns>
    </TableView>
    <TextArea fx:id="taDescricao" disable="true" layoutX="888.0" layoutY="157.0" prefHeight="430.0" prefWidth="300.0" promptText="                                                       Descrição">
@@ -40,4 +39,9 @@
          <Font name="System Bold Italic" size="36.0" />
       </font>
    </TextArea>
+   <JFXButton layoutX="554.0" layoutY="640.0" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
+      <font>
+         <Font name="System Bold Italic" size="18.0" />
+      </font>
+   </JFXButton>
 </AnchorPane>

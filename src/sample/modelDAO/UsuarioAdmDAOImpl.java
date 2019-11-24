@@ -11,7 +11,7 @@ import java.util.List;
 
 public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
 
-    private static String INSERE = "insert into UsuarioADM(id_usuario, telefone, cpf) values(?, ?, ?, ?, ?, ?)";
+    private static String INSERE = "insert into UsuarioADM(id_usuario, telefone, cpf) values(?, ?, ?)";
     private static String VERIF = "select * from UsuarioADM where nome like ? and senha like ?";
     private static String LISTA = "select * from UsuarioADM";
     private static String BUSCAID = "select * from UsuarioADM where id_usuario like ?";
@@ -28,6 +28,8 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
 
         PreparedStatement stm = con
                 .prepareStatement(INSERE);
+
+        System.out.println("Testando id..."+getId.getId());
 
         stm.setInt(1,getId.getId());
         stm.setString(2,u.getTelefone());

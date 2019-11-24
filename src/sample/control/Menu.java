@@ -2,22 +2,13 @@ package sample.control;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import sample.Browser;
 
 import java.io.IOException;
@@ -43,6 +34,19 @@ public class Menu {
     @FXML
     private JFXDialog jfxDialog;
 
+    private Image image1 = new Image("/sample/icons/pesquisa.jpeg");
+    private Image image2 = new Image("/sample/icons/analise.jpeg");
+    private Image image3 = new Image("/sample/icons/lista.jpeg");
+    private Image image4 = new Image("/sample/icons/pdf.jpeg");
+    private Image image5 = new Image("/sample/icons/administrador.jpeg");
+    private Image image6 = new Image("/sample/icons/logout.jpeg");
+    private Image bigImage1=new Image("/sample/icons/pesquisa2.jpeg");
+    private Image bigImage2=new Image("/sample/icons/analise2.jpeg");
+    private Image bigImage3=new Image("/sample/icons/lista2.jpeg");
+    private Image bigImage4=new Image("/sample/icons/pdf2.jpeg");
+    private Image bigImage5=new Image("/sample/icons/administrador2.jpeg");
+    private Image bigImage6=new Image("/sample/icons/logout2.jpeg");
+
     @FXML
     void acaoFechar(){
         System.exit(0);
@@ -57,6 +61,7 @@ public class Menu {
                     "todos os produtos desejados.\n" +
                     "\n" +
                     "Dica: Utilize Filtros!\n");
+            btUm.setGraphic(new ImageView(bigImage1));
             btUm.setLayoutX(710);
             btUm.setLayoutY(150);
             btUm.setPrefSize(120, 120);
@@ -151,13 +156,6 @@ public class Menu {
     }
 
     private void resetaImagem() {
-        Image image1 = new Image("/sample/icons/pesquisa.jpeg");
-        Image image2 = new Image("/sample/icons/analise.jpeg");
-        Image image3 = new Image("/sample/icons/lista.jpeg");
-        Image image4 = new Image("/sample/icons/pdf.jpeg");
-        Image image5 = new Image("/sample/icons/administrador.jpeg");
-        Image image6 = new Image("/sample/icons/logout.jpeg");
-
         btUm.setGraphic(new ImageView(image1));
         btDois.setGraphic(new ImageView(image2));
         btTres.setGraphic(new ImageView(image3));
@@ -165,14 +163,8 @@ public class Menu {
         btCinco.setGraphic(new ImageView(image5));
         btSeis.setGraphic(new ImageView(image6));
     }
-    private void alteraPosicao(int nv){
-        Image bigImage1=new Image("/sample/icons/pesquisa2.jpeg");
-        Image bigImage2=new Image("/sample/icons/analise2.jpeg");
-        Image bigImage3=new Image("/sample/icons/lista2.jpeg");
-        Image bigImage4=new Image("/sample/icons/pdf2.jpeg");
-        Image bigImage5=new Image("/sample/icons/administrador2.jpeg");
-        Image bigImage6=new Image("/sample/icons/logout2.jpeg");
 
+    private void alteraPosicao(int nv){
         resetaSize();
         resetaImagem();
 

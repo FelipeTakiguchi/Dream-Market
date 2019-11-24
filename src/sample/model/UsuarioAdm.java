@@ -11,6 +11,14 @@ public class UsuarioAdm extends Usuario{
         this.cpf = cpf;
     }
 
+    @Override
+    public String toString() {
+        return "UsuarioAdm{" +
+                "telefone='" + telefone + '\'' +
+                ", cpf='" + cpf + '\'' +
+                '}';
+    }
+
     public UsuarioAdm(int id, String nome, String email, String senha, Cidade cidade, String telefone, String cpf) {
         super(id, nome, email, senha, cidade);
         this.telefone = telefone;

@@ -33,6 +33,7 @@ public class Controle {
 
     public static void setUsuarioAdm(UsuarioAdm usuarioAdm) {
         Controle.usuarioAdm = usuarioAdm;
+        System.out.println(usuarioAdm);
     }
 
     public static Usuario getUsuario() {
