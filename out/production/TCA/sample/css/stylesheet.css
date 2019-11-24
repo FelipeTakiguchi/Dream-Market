@@ -1,0 +1,44 @@
+.botaoredondopreto{
+    -fx-background-radius: 100;
+}
+
+.botao{
+    -fx-padding: 10 10 10 10;
+        -fx-border-color: #e2e2e2;
+        -fx-border-width: 2;
+        -fx-background-radius: 0;
+        -fx-background-color: #1d1d1d;
+        -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.corazul5{
+    -fx-background-color: #051923;
+}
+
+.corazul4{
+    -fx-background-color: #003554;
+}
+
+.corazul3{
+    -fx-background-color: #006494;
+}
+
+.corazul2{
+    -fx-background-color: #0582CA;
+}
+
+.corazul1{
+    -fx-background-color: #00A6FB;
+}
+
+.corverdeclaro{
+    -fx-background-color: #56dd47;
+}
+
+.corverdelima{
+    -fx-background-color: #1FF021;
+}
+
+.corazulclaro{
+    -fx-background-color: #B6FFF8;
+}

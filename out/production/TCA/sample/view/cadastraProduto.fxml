@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.Cursor?>
+<?import java.lang.String?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.control.CadastraProduto"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <JFXButton layoutX="596.0" layoutY="10.0" fx:id="btFechar" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <styleClass>
+            <String fx:value="botaoredondopreto" />
+            <String fx:value="corazul2" />
+        </styleClass>
+        <font>
+            <Font name="System Bold" size="13.0" />
+        </font>
+    </JFXButton>
+</AnchorPane>

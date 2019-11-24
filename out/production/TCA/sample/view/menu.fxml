@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDialog?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane onScroll="#mudaOpcao" prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper4" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.Menu">
+   <children>
+      <Label layoutX="221.0" layoutY="70.0" />
+      <JFXButton layoutX="1236.0" layoutY="14.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+          <cursor>
+              <Cursor fx:constant="HAND" />
+          </cursor>
+          <styleClass>
+              <String fx:value="botaoredondopreto" />
+              <String fx:value="corazul2" />
+          </styleClass>
+          <font>
+              <Font name="System Bold" size="13.0" />
+          </font>
+      </JFXButton>
+      <MenuBar layoutX="-2.0" prefHeight="39.0" prefWidth="90.0">
+        <menus>
+            <Menu mnemonicParsing="false" text="Menu">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <RadioMenuItem mnemonicParsing="false" text="Ola" />
+              </items>
+            </Menu>
+        </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </MenuBar>
+      <TextArea fx:id="taDescricao" editable="false" layoutX="550.0" layoutY="300.0" prefHeight="150.0" prefWidth="180.0" text="&#10;&#10;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextArea>
+      <JFXButton fx:id="btUm" layoutX="710.0" layoutY="150.0" onAction="#opcaoPesquisa" prefHeight="80.0" prefWidth="80.0" style="border: 10;">
+         <stylesheets>
+            <URL value="@../css/icons.css" />
+            <URL value="@../css/stylesheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="labelpesquisa" />
+            <String fx:value="botao" />
+         </styleClass></JFXButton>
+      <JFXButton fx:id="btQuatro" layoutX="510.0" layoutY="505.0" onAction="#opcaoPdf" prefHeight="80.0" prefWidth="80.0">
+         <stylesheets>
+            <URL value="@../css/icons.css" />
+            <URL value="@../css/stylesheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="labelpdf" />
+            <String fx:value="botao" />
+         </styleClass>
+      </JFXButton>
+      <JFXButton fx:id="btTres" layoutX="710.0" layoutY="505.0" onAction="#opcaoLista" prefHeight="80.0" prefWidth="80.0">
+         <stylesheets>
+            <URL value="@../css/icons.css" />
+            <URL value="@../css/stylesheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="labellista" />
+            <String fx:value="botao" />
+         </styleClass>
+      </JFXButton>
+      <JFXButton fx:id="btSeis" layoutX="510.0" layoutY="150.0" onAction="#opcaoLogoff" prefHeight="80.0" prefWidth="80.0">
+         <stylesheets>
+            <URL value="@../css/icons.css" />
+            <URL value="@../css/stylesheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="labellogout" />
+            <String fx:value="botao" />
+         </styleClass>
+      </JFXButton>
+      <JFXButton fx:id="btDois" layoutX="800.0" layoutY="340.0" onAction="#opcaoAnalise" prefHeight="80.0" prefWidth="80.0">
+         <stylesheets>
+            <URL value="@../css/icons.css" />
+            <URL value="@../css/stylesheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="labelcomparacao" />
+            <String fx:value="botao" />
+         </styleClass>
+      </JFXButton>
+      <JFXButton fx:id="btCinco" layoutX="390.0" layoutY="340.0" onAction="#opcaoAdm" prefHeight="80.0" prefWidth="80.0">
+         <stylesheets>
+            <URL value="@../css/icons.css" />
+            <URL value="@../css/stylesheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="labeladm" />
+            <String fx:value="botao" />
+         </styleClass>
+      </JFXButton>
+      <JFXDialog fx:id="jfxDialog" layoutX="33.0" layoutY="126.0" prefHeight="129.0" prefWidth="139.0" />
+   </children>
+</AnchorPane>

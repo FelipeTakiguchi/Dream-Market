@@ -1,0 +1,15 @@
+.wallpaper1{
+    -fx-background-image: url("/sample/images/Carrinho.jpg");
+}
+
+.wallpaper2{
+    -fx-background-image: url("/sample/images/Supermarket.jpg");
+}
+
+.wallpaper3{
+    -fx-background-image: url("/sample/images/compras.jpg");
+}
+
+.wallpaper4{
+    -fx-background-image: url("/sample/images/menu.jpg");
+}

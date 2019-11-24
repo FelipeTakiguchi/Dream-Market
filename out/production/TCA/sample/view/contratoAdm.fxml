@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXScrollPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="360.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.ContratoAdm">
+    <children>
+        <JFXScrollPane layoutX="151.0" layoutY="83.0" opacity="0.85" prefHeight="194.0" prefWidth="338.0">
+            <children>
+                <JFXTextArea text="Ao aceitar os termos o usuário está ciente de que:&#10;&#10;I- As informações a serem compartilhadas devem ser verdadeiros.&#10;II- Os demais usuários têm direito de avaliar suas postagens.&#10;III- A partir dos seus compartilhamentos seu perfil se torna visível para os demais usuários.&#10;IV- Caso o usuário não possua uma avaliação relativamente positiva, será enviado um aviso de exclusão da conta, caso não seja provado sua eficiencia.&#10;V- Quaisquer problemas ou erros devem ser relatados tendo em vista o foco no assunto envolvido.&#10;" />
+            </children>
+        </JFXScrollPane>
+        <JFXButton layoutX="237.0" layoutY="309.0" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font></JFXButton>
+        <JFXButton layoutX="361.0" layoutY="309.0" onAction="#proximo" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Avançar">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font></JFXButton>
+        <JFXProgressBar layoutX="220.0" layoutY="26.0" progress="0.51" />
+      <JFXButton fx:id="btFechar" layoutX="596.0" layoutY="13.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <styleClass>
+            <String fx:value="botaoredondopreto" />
+            <String fx:value="corazul2" />
+         </styleClass>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXCheckBox fx:id="cbAcordo" layoutX="151.0" layoutY="282.0" text="Li e concordo com os termos de uso" />
+    </children>
+</AnchorPane>

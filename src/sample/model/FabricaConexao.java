@@ -9,11 +9,11 @@ public class FabricaConexao {
     private static int MAX_CONNECTIONS=5;
     private static FabricaConexao instance = new FabricaConexao();
 
-    private static String ENDERECO_SERVIDOR = "infoprojetos.com.br:3132";
-    private static String NOME_BANCO = "info18_felipe";
+    private static String ENDERECO_SERVIDOR = "";
+    private static String NOME_BANCO = "";
 
-    private static String USER="info18_felipe";
-    private static String PASSWORD="dragonite02";
+    private static String USER="";
+    private static String PASSWORD="";
 
     private static String STRING_CONEXAO ="jdbc:mysql://"+ENDERECO_SERVIDOR+"/"+NOME_BANCO; //porta 31 32;
 

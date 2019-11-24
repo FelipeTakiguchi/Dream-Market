@@ -56,11 +56,11 @@ public class PesquisaItens {
     void initialize() throws SQLException {
         tcItemNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tcItemMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
-        tcItemValor.setCellValueFactory(new PropertyValueFactory<>("categoria"));
-        tcItemComercio.setCellValueFactory(new PropertyValueFactory<>("valor"));
-        tcItemCidade.setCellValueFactory(new PropertyValueFactory<>("paga"));
-        tcItemEstado.setCellValueFactory(new PropertyValueFactory<>("realizacao"));
-        tcItemUsuario.setCellValueFactory(new PropertyValueFactory<>("dataCadastro"));
+        tcItemValor.setCellValueFactory(new PropertyValueFactory<>("preco"));
+        tcItemComercio.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tcItemCidade.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tcItemEstado.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tcItemUsuario.setCellValueFactory(new PropertyValueFactory<>("nome"));
         ObservableList<Item> listagem = FXCollections.observableArrayList();
 
         //listagem = atualizaTabela();
