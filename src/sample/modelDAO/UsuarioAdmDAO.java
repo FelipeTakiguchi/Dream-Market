@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface UsuarioAdmDAO {
+    UsuarioAdm insereadm(String nome, String email, String senha, Cidade cidade, String telefone, String cpf) throws SQLException;
     UsuarioAdm insere(String nome, String email, String senha, Cidade cidade, String telefone, String cpf) throws SQLException;
     UsuarioAdm verif(String Nome, String Senha) throws SQLException;
+    UsuarioAdm verifEmail(String Email, String Senha) throws SQLException;
     List<UsuarioAdm> lista() throws SQLException;
     UsuarioAdm buscaId(int id) throws SQLException;
 }

@@ -36,3 +36,11 @@
 .labelpositivo{
     -fx-graphic: url("/sample/icons/positivo.jpg");
 }
+
+.labelavatar{
+    -fx-graphic: url("/sample/icons/user.jpeg");
+}
+
+.labelavataradm{
+    -fx-graphic: url("/sample/icons/admin.jpeg");
+}

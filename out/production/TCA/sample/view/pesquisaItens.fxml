@@ -23,7 +23,7 @@
             <Font name="System Bold" size="13.0" />
         </font>
     </JFXButton>
-   <TableView fx:id="tvItem" layoutX="109.0" layoutY="157.0" onAction="#mostraDescricao" prefHeight="430.0" prefWidth="700.0">
+   <TableView fx:id="tvItem" layoutX="109.0" layoutY="157.0" onMouseClicked="#mostraDescricao" prefHeight="430.0" prefWidth="700.0">
      <columns>
          <TableColumn fx:id="tcItemNome" prefWidth="108.0" text="Nome" />
          <TableColumn fx:id="tcItemMarca" prefWidth="90.0" text="Marca" />

@@ -24,6 +24,8 @@ public class Browser {
     public static final String COMPARAITENS= "/sample/view/comparaItens.fxml";
     public static final String CRIALISTA= "/sample/view/criaLista.fxml";
     public static final String GERARLISTA= "/sample/view/gerarLista.fxml";
+    public static final String MUDAADM = "/sample/view/mudaAdm.fxml";
+    public static final String MENUADM = "/sample/view/menuAdm.fxml";
 
     private static Base controller;
 

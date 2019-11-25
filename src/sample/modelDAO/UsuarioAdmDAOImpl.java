@@ -12,11 +12,33 @@ import java.util.List;
 public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
 
     private static String INSERE = "insert into UsuarioADM(id_usuario, telefone, cpf) values(?, ?, ?)";
-    private static String VERIF = "select * from UsuarioADM where nome like ? and senha like ?";
+    private static String VERIF = "select * from UsuarioADM where Id_usuario = ?";
+    private static String VERIFEMAIL = "select * from UsuarioADM where email like ? and senha like ?";
     private static String LISTA = "select * from UsuarioADM";
     private static String BUSCAID = "select * from UsuarioADM where id_usuario like ?";
     private static String CIDADE = "select * from Cidade where Id_cidade = ?";
     private static String ESTADO = "select * from Estado where Id_estado = ?";
+
+    @Override
+    public UsuarioAdm insereadm(String nome, String email, String senha, Cidade cidade, String telefone, String cpf) throws SQLException {
+        UsuarioAdm u = new UsuarioAdm(nome, email, senha, cidade, telefone, cpf);
+        Usuario getId = Controle.getInstance().verificaUsuarioEmail(email, senha);
+        Connection con = FabricaConexao.getConnection();
+
+        PreparedStatement stm = con
+                .prepareStatement(INSERE);
+
+        stm.setInt(1,getId.getId());
+        stm.setString(2,u.getTelefone());
+        stm.setString(3,u.getCpf());
+
+        stm.executeUpdate();
+
+        stm.close();
+        con.close();
+
+        return u;
+    }
 
     @Override
     public UsuarioAdm insere(String nome, String email, String senha, Cidade cidade, String telefone, String cpf) throws SQLException {
@@ -28,8 +50,6 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
 
         PreparedStatement stm = con
                 .prepareStatement(INSERE);
-
-        System.out.println("Testando id..."+getId.getId());
 
         stm.setInt(1,getId.getId());
         stm.setString(2,u.getTelefone());
@@ -45,29 +65,65 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
 
     @Override
     public UsuarioAdm verif(String Nome, String Senha) throws SQLException {
-
+        Usuario usuario = null;
         UsuarioAdm u = null;
+
+        if(Controle.getInstance().verificaUsuarioNome(Nome, Senha) != null){
+            usuario = Controle.getInstance().verificaUsuarioNome(Nome, Senha);
+        }
+        else {
+            return null;
+        }
+
+        System.out.println(usuario.getId());
 
         Connection con = FabricaConexao.getConnection();
 
         PreparedStatement stm = con.prepareStatement(VERIF);
 
-        stm.setString(1,Nome);
-        stm.setString(2,Senha);
+        stm.setInt(1, usuario.getId());
 
         ResultSet res = stm.executeQuery();
 
         while(res.next()){
-            String nome = res.getString("nome");
-            String email = res.getString("email");
-            String senha = res.getString("senha");
-            int id_cidade = res.getInt("id_Cidade");
             String telefone = res.getString("telefone");
             String cpf = res.getString("cpf");
 
-            Cidade cidade = getCidade(id_cidade);
+            u = new UsuarioAdm(usuario.getNome(), usuario.getEmail(), usuario.getSenha(), usuario.getCidade(), telefone, cpf);
+        }
 
-            u = new UsuarioAdm(nome, email, senha, cidade, telefone, cpf);
+        res.close();
+        stm.close();
+        con.close();
+
+        return u;
+    }
+
+    @Override
+    public UsuarioAdm verifEmail(String Email, String Senha) throws SQLException {
+        Usuario usuario = null;
+        UsuarioAdm u = null;
+
+        if(Controle.getInstance().verificaUsuarioNome(Email, Senha) != null){
+            usuario = Controle.getInstance().verificaUsuarioNome(Email, Senha);
+        }
+        else {
+            return null;
+        }
+
+        Connection con = FabricaConexao.getConnection();
+
+        PreparedStatement stm = con.prepareStatement(VERIFEMAIL);
+
+        stm.setInt(1,usuario.getId());
+
+        ResultSet res = stm.executeQuery();
+
+        while(res.next()){
+            String telefone = res.getString("telefone");
+            String cpf = res.getString("cpf");
+
+            u = new UsuarioAdm(usuario.getNome(), usuario.getEmail(), usuario.getSenha(), usuario.getCidade(), telefone, cpf);
         }
 
         res.close();

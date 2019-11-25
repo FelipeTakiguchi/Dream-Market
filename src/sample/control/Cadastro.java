@@ -28,6 +28,11 @@ public class Cadastro {
         System.exit(0);
     }
 
+    @FXML
+    void voltar(){
+        Browser.loadWindows(Browser.LOGIN);
+    }
+
     public void explicaNormal(MouseEvent event) {
         taNormal.setVisible(Boolean.TRUE);
         xOffset = event.getSceneX();
@@ -53,34 +58,19 @@ public class Cadastro {
     }
 
     public void criaNormal(ActionEvent event) throws IOException {
-            Dialog<ButtonType> dialog = new Dialog<>();
+        Dialog<ButtonType> dialog = new Dialog<>();
 
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource(Browser.CADASTRANORMAL));
-            try{
-                Pane conteudo = loader.load();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(Browser.CADASTRAADM));
+        try{
+            Pane conteudo = loader.load();
 
-                dialog.getDialogPane().setContent(conteudo);
+            dialog.getDialogPane().setContent(conteudo);
 
-//                dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
-//                dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-//
-//                Optional<ButtonType> res = dialog.showAndWait();
-//
-//                if(res.isPresent() && res.get() == ButtonType.OK){
-//                    CadastraNormal controler = loader.getController();
-//
-//                    controler.acao();
-//
-//                }
-
-                dialog.showAndWait();
-                dialog.setResizable(false);
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-
-
+            dialog.showAndWait();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public void criaAdministrador(ActionEvent event) throws IOException {

@@ -12,7 +12,7 @@ public class UsuarioAdm extends Usuario{
     }
 
     @Override
-    public String toString() {
+    public String   toString() {
         return "UsuarioAdm{" +
                 "telefone='" + telefone + '\'' +
                 ", cpf='" + cpf + '\'' +

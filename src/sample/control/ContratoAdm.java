@@ -47,8 +47,13 @@ public class ContratoAdm {
 
     public void proximo(ActionEvent event) throws SQLException {
         if(cbAcordo.isSelected()){
-            Controle.getInstance().addUsuarioAdm(Controle.getUsuarioAdm());
-            System.out.println(Controle.getUsuarioAdm());
+            if(Controle.getUsuario() == null) {
+                Controle.getInstance().addUsuarioAdm(Controle.getUsuarioAdm());
+            }
+            else{
+                Controle.getInstance().mudaUsuario(Controle.getUsuarioAdm());
+            }
+
             Dialog<ButtonType> dialog = new Dialog<>();
 
             FXMLLoader loader = new FXMLLoader();

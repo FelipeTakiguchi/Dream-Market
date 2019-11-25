@@ -37,13 +37,11 @@ public class MudaAdm {
 
         Usuario usuario = Controle.getUsuario();
         UsuarioAdm usuarioAdm = new UsuarioAdm(usuario.getNome(), usuario.getEmail(), usuario.getSenha(),usuario.getCidade(), telefone, cpf);
-        Controle.getInstance().addUsuarioAdm(usuarioAdm);
-        Controle.getInstance().addUsuarioAdm(Controle.getUsuarioAdm());
-        System.out.println(Controle.getUsuarioAdm());
+        Controle.setUsuarioAdm(usuarioAdm);
         Dialog<ButtonType> dialog = new Dialog<>();
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(Browser.CONCLUIDOADM));
+        loader.setLocation(getClass().getResource(Browser.EXIBECONDICOESADM));
 
         try{
             Pane conteudo = loader.load();

@@ -19,6 +19,17 @@ public class Usuario {
         return nome;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", cidade=" + cidade +
+                '}';
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }

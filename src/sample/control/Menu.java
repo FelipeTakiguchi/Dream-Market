@@ -2,16 +2,20 @@ package sample.control;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TextArea;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.Pane;
 import sample.Browser;
+import sample.model.Controle;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class Menu {
 
@@ -30,7 +34,7 @@ public class Menu {
     @FXML
     private TextArea taDescricao;
     @FXML
-    private Dialog dialog;
+    private JFXToggleButton tgModo;
     @FXML
     private JFXDialog jfxDialog;
 
@@ -54,7 +58,14 @@ public class Menu {
 
     private static int nivel = 1;
 
-    public void initialize(){
+    public void initialize() throws SQLException {
+        if(Controle.getInstance().isAdm(Controle.getUsuario().getNome(), Controle.getUsuario().getSenha())){
+            tgModo.setVisible(true);
+        }
+        else{
+            tgModo.setVisible(false);
+        }
+
         if(nivel == 1){
             taDescricao.setText("\nPesquisa: Permite que sejam\n" +
                     "encontrados com facilidade \n" +
@@ -326,6 +337,24 @@ public class Menu {
     }
 
     public void opcaoAdm() throws IOException {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(Browser.MUDAADM));
 
+        try{
+            Pane conteudo = loader.load();
+
+            dialog.getDialogPane().setContent(conteudo);
+
+            dialog.showAndWait();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void alteraModo(ActionEvent event) throws SQLException{
+        if(Controle.getInstance().isAdm(Controle.getUsuario().getNome(), Controle.getUsuario().getSenha())){
+            Browser.loadWindows(Browser.MENUADM);
+        }
     }
 }

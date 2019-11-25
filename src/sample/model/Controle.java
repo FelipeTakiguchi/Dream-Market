@@ -92,4 +92,16 @@ public class Controle {
     public UsuarioAdm addUsuarioAdm(UsuarioAdm usuarioAdm) throws SQLException {
         return usuarioAdmDAO.insere(usuarioAdm.getNome(), usuarioAdm.getEmail(), usuarioAdm.getSenha(), usuarioAdm.getCidade(), usuarioAdm.getTelefone(), usuarioAdm.getCpf());
     }
+
+    public UsuarioAdm mudaUsuario(UsuarioAdm usuarioAdm) throws SQLException {
+        return usuarioAdmDAO.insereadm(usuarioAdm.getNome(), usuarioAdm.getEmail(), usuarioAdm.getSenha(), usuarioAdm.getCidade(), usuarioAdm.getTelefone(), usuarioAdm.getCpf());
+    }
+
+    public Boolean isAdm(String credencial, String senha) throws SQLException{
+        if(usuarioAdmDAO.verif(credencial, senha) != null || usuarioAdmDAO.verifEmail(credencial, senha) != null){
+            return true;
+        }
+
+        return false;
+    }
 }

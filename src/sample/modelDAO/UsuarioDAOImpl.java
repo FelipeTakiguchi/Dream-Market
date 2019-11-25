@@ -179,6 +179,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     public Usuario verifNome(String Nome, String Senha) throws SQLException {
 
         Usuario u = null;
+        int id = -1;
         String nome = "";
         String email = "";
         String senha = "";
@@ -194,11 +195,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         ResultSet res = stm.executeQuery();
 
         while(res.next()){
+            id = res.getInt("Id_usuario");
             nome = res.getString("nome");
             email = res.getString("email");
             senha = res.getString("senha");
             id_cidade = res.getInt("id_Cidade");
-
         }
 
         res.close();
@@ -231,7 +232,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
             Estado estado = new Estado(nome_Estado);
             cidade = new Cidade(nome_cidade, estado);
-            u = new Usuario(nome, email, senha, cidade);
+            u = new Usuario(id, nome, email, senha, cidade);
         }
 
         res3.close();
