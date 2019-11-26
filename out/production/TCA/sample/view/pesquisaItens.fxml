@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.PesquisaItens">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper6" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.PesquisaItens">
 
     <JFXButton fx:id="btFechar" layoutX="1236.0" layoutY="14.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
         <cursor>
@@ -23,7 +23,7 @@
             <Font name="System Bold" size="13.0" />
         </font>
     </JFXButton>
-   <TableView fx:id="tvItem" layoutX="109.0" layoutY="157.0" onMouseClicked="#mostraDescricao" prefHeight="430.0" prefWidth="700.0">
+   <TableView opacity="0.5" fx:id="tvItem" layoutX="109.0" layoutY="157.0" onMouseClicked="#mostraDescricao" prefHeight="430.0" prefWidth="700.0">
      <columns>
          <TableColumn fx:id="tcItemNome" prefWidth="108.0" text="Nome" />
          <TableColumn fx:id="tcItemMarca" prefWidth="90.0" text="Marca" />

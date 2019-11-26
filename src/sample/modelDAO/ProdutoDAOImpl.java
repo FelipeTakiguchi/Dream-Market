@@ -12,14 +12,14 @@ import java.util.List;
 
 public class ProdutoDAOImpl implements ProdutoDAO {
 
-    private static String INSERE = "insert into produto(nome, marca, descricao, valor, id_responsavel) values(?, ?, ?, ?, ?)";
-    private static String VERIF = "select nome from produto where nome like ?";
-    private static String LISTA = "select * from produto";
-    private static String BUSCAID = "select * from produto where id like ?";
+    private static String INSERE = "insert into Produto(nome, marca, descricao, valor, id_responsavel) values(?, ?, ?, ?, ?)";
+    private static String VERIF = "select nome from Produto where nome like ?";
+    private static String LISTA = "select * from Produto";
+    private static String BUSCAID = "select * from Produto where id_produto = ?";
 
     @Override
-    public Produto insere(String nome, String marca, String descricao, float valor, int id_responsavel) throws SQLException {
-        Produto p = new Produto(nome, marca, descricao, valor, id_responsavel);
+    public Produto insere(String nome, String marca, String descricao, int id_responsavel) throws SQLException {
+        Produto p = new Produto(nome, marca, descricao, id_responsavel);
         Connection con = FabricaConexao.getConnection();
 
 
@@ -53,10 +53,9 @@ public class ProdutoDAOImpl implements ProdutoDAO {
             String nome = res.getString("nome");
             String marca = res.getString("marca");
             String descricao = res.getString("descricao");
-            float valor = res.getFloat("valor");
             int id_responsavel = res.getInt("id_responsavel");
 
-            p = new Produto(nome, marca, descricao, valor, id_responsavel);
+            p = new Produto(nome, marca, descricao, id_responsavel);
         }
 
         res.close();
@@ -80,9 +79,8 @@ public class ProdutoDAOImpl implements ProdutoDAO {
             String nome = rs.getString("nome");
             String marca = rs.getString("marca");
             String descricao = rs.getString("descricao");
-            float valor = rs.getFloat("valor");
             int id_responsavel = rs.getInt("id_responsavel");
-            Produto cat = new Produto(id, nome, marca, descricao, valor, id_responsavel);
+            Produto cat = new Produto(id, nome, marca, descricao, id_responsavel);
 
             categorias.add(cat);
         }
@@ -111,9 +109,8 @@ public class ProdutoDAOImpl implements ProdutoDAO {
             String nome = res.getString("nome");
             String marca = res.getString("marca");
             String descricao = res.getString("descricao");
-            float valor = res.getFloat("valor");
             int id_responsavel = res.getInt("id_responsavel");
-            p = new Produto(id, nome, marca, descricao, valor, id_responsavel);
+            p = new Produto(id, nome, marca, descricao, id_responsavel);
         }
 
         res.close();

@@ -15,7 +15,7 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
     private static String VERIF = "select * from UsuarioADM where Id_usuario = ?";
     private static String VERIFEMAIL = "select * from UsuarioADM where email like ? and senha like ?";
     private static String LISTA = "select * from UsuarioADM";
-    private static String BUSCAID = "select * from UsuarioADM where id_usuario like ?";
+    private static String BUSCAID = "select * from UsuarioADM where id_usuario = ?";
     private static String CIDADE = "select * from Cidade where Id_cidade = ?";
     private static String ESTADO = "select * from Estado where Id_estado = ?";
 
@@ -74,8 +74,6 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
         else {
             return null;
         }
-
-        System.out.println(usuario.getId());
 
         Connection con = FabricaConexao.getConnection();
 
@@ -167,8 +165,10 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
 
     @Override
     public UsuarioAdm buscaId(int id) throws SQLException{
-
+        UsuarioDAO resgata = new UsuarioDAOImpl();
         UsuarioAdm u = null;
+
+        Usuario usuario = resgata.buscaId(id);
 
         Connection con = FabricaConexao.getConnection();
 
@@ -176,19 +176,15 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
 
         stm.setInt(1,id);
 
+        System.out.println(id+" "+resgata.buscaId(id));
+
         ResultSet res = stm.executeQuery();
 
         while(res.next()){
-            String nome = res.getString("nome");
-            String email = res.getString("email");
-            String senha = res.getString("senha");
-            int id_cidade = res.getInt("id_cidade");
-            String telefone = res.getString("telefone");
-            String cpf = res.getString("cpf");
+            String telefone = res.getString("Telefone");
+            String cpf = res.getString("CPF");
 
-            Cidade cidade = getCidade(id_cidade);
-
-            u = new UsuarioAdm(id, nome, email, senha, cidade, telefone, cpf);
+            u = new UsuarioAdm(usuario.getNome(), usuario.getEmail(), usuario.getSenha(), usuario.getCidade(), telefone, cpf);
         }
 
         res.close();

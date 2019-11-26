@@ -21,10 +21,6 @@
       <JFXButton layoutX="512.0" layoutY="64.0" onAction="#novaCidade" text="+" />
       <JFXTextField fx:id="tfTelefone" labelFloat="true" layoutX="358.0" layoutY="118.0" prefHeight="25.0" prefWidth="196.0" promptText="Telefone" />
       <JFXTextField fx:id="tfCpf" layoutX="358.0" layoutY="180.0" prefHeight="25.0" prefWidth="196.0" promptText="CPF" />
-        <JFXButton layoutX="281.0" layoutY="310.0" onAction="#proximoPasso" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Próximo">
-         <font>
-            <Font name="System Bold Italic" size="15.0" />
-         </font></JFXButton>
       <Label layoutX="66.0" layoutY="52.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
       <Label layoutX="333.0" layoutY="65.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />
       <Label layoutX="333.0" layoutY="118.0" prefHeight="25.0" prefWidth="25.0" styleClass="labelasterisco" stylesheets="@../css/icons.css" />

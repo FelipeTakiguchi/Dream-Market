@@ -1,5 +1,5 @@
 .wallpaper1{
-    -fx-background-image: url("/sample/images/Carrinho.jpg");
+    -fx-background-image: url("/sample/images/compra.jpg");
 }
 
 .wallpaper2{
@@ -7,9 +7,29 @@
 }
 
 .wallpaper3{
-    -fx-background-image: url("/sample/images/compras.jpg");
+    -fx-background-image: url("/sample/images/documento.jpg");
 }
 
 .wallpaper4{
     -fx-background-image: url("/sample/images/menu.jpg");
+}
+
+.wallpaper5{
+    -fx-background-image: url("/sample/images/adminmenu.jpeg");
+}
+
+.wallpaper6{
+    -fx-background-image: url("/sample/images/pesquisa.jpeg");
+}
+
+.wallpaper7{
+    -fx-background-image: url("/sample/images/analise.jpg");
+}
+
+.wallpaper8{
+    -fx-background-image: url("/sample/images/lista.jpg");
+}
+
+.wallpaper9{
+    -fx-background-image: url("/sample/images/background1.jpg");
 }

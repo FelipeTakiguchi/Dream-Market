@@ -12,11 +12,8 @@ public class UsuarioAdm extends Usuario{
     }
 
     @Override
-    public String   toString() {
-        return "UsuarioAdm{" +
-                "telefone='" + telefone + '\'' +
-                ", cpf='" + cpf + '\'' +
-                '}';
+    public String toString() {
+        return getNome();
     }
 
     public UsuarioAdm(int id, String nome, String email, String senha, Cidade cidade, String telefone, String cpf) {

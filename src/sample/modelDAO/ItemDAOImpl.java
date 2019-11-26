@@ -12,8 +12,8 @@ public class ItemDAOImpl implements ItemDAO {
     private static String VERIF = "select nome from Item where nome like ?";
     private static String LISTA = "select * from Item";
     private static String BUSCAID = "select * from Item where id like ?";
-    private static String CIDADE = "select * from Cidade where id = ?";
-    private static String ESTADO = "select * from Estado where id = ?";
+    private static String CIDADE = "select * from Cidade where Id_cidade = ?";
+    private static String ESTADO = "select * from Estado where Id_estado = ?";
     private static String PRODUTO = "select * from Produto where Id_produto = ?";
     private static String USUARIOADM = "select * from UsuarioADM where id_usuario like ?";
     private static String COMERCIO = "select * from Comercio where id_comercio like ?";
@@ -79,6 +79,9 @@ public class ItemDAOImpl implements ItemDAO {
     @Override
     public List<Item> lista() throws SQLException{
         ArrayList<Item> itens = new ArrayList<>();
+        UsuarioAdmDAO usuarioAdmDAO = new UsuarioAdmDAOImpl();
+        ProdutoDAO produtoDAO = new ProdutoDAOImpl();
+        ComercioDAO comercioDAO = new ComercioDAOImpl();
 
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stm = con.prepareStatement(LISTA);
@@ -86,20 +89,21 @@ public class ItemDAOImpl implements ItemDAO {
         ResultSet rs = stm.executeQuery();
 
         while (rs.next()){
-            int id = rs.getInt("Id_estado");
+            int id = rs.getInt("Id_item");
             Boolean estoque = rs.getBoolean("estoque");
-            float preco = rs.getFloat("preco");
+            float preco = rs.getFloat("Preco");
             int id_produto = rs.getInt("id_produto");
             int id_comercio = rs.getInt("id_comercio");
             Date data_atualizacao = rs.getDate("Data_atualizacao");
             int id_responsavel = rs.getInt("Id_responsavel");
 
-            Produto produto = getProduto(id_produto);
-            Comercio comercio = getComercio(id_comercio);
-            UsuarioAdm usuarioAdm = getResponsavel(id_responsavel);
+            Produto produto = produtoDAO.buscaId(id_produto);
+            Comercio comercio = comercioDAO.buscaId(id_comercio);
+            UsuarioAdm usuarioAdm = usuarioAdmDAO.buscaId(id_responsavel);
 
             Item item = new Item(id, estoque, preco, produto, comercio, data_atualizacao, usuarioAdm);
 
+            System.out.println(item);
             itens.add(item);
         }
 
@@ -145,45 +149,6 @@ public class ItemDAOImpl implements ItemDAO {
         return item;
     }
 
-    private Cidade getCidade(int id_cidade) throws SQLException {
-        int id_estado = -1;
-        Estado estado = null;
-        Cidade cidade = null;
-
-        Connection con = FabricaConexao.getConnection();
-        PreparedStatement stm = con.prepareStatement(CIDADE);
-
-        stm.setInt(1,id_cidade);
-        ResultSet rs = stm.executeQuery();
-
-        while (rs.next()) {
-            int id = rs.getInt("id");
-            String nome_cidade = rs.getString("nome");
-            id_estado = rs.getInt("Id_estado");
-
-            PreparedStatement stm2 = con.prepareStatement(ESTADO);
-
-            stm2.setInt(1, id_estado);
-
-            ResultSet res2 = stm.executeQuery();
-
-            while (res2.next()) {
-                String nome_Estado;
-
-                nome_Estado = res2.getString("nome");
-
-                estado = new Estado(id_estado, nome_Estado);
-            }
-
-            res2.close();
-            stm2.close();
-
-            cidade = new Cidade(id, nome_cidade, estado);
-        }
-
-        return cidade;
-    }
-
     private Produto getProduto(int id_produto) throws SQLException{
         Produto produto = null;
         Connection con = FabricaConexao.getConnection();
@@ -196,10 +161,9 @@ public class ItemDAOImpl implements ItemDAO {
             String nome = rs.getString("nome");
             String marca = rs.getString("marca");
             String descricao = rs.getString("descricao");
-            float valor = rs.getFloat("valor");
             int id_responsavel = rs.getInt("id_responsavel");
 
-            produto = new Produto(id_produto, nome, marca, descricao, valor, id_responsavel);
+            produto = new Produto(id_produto, nome, marca, descricao, id_responsavel);
         }
 
         return produto;
@@ -265,5 +229,46 @@ public class ItemDAOImpl implements ItemDAO {
         con.close();
 
         return u;
+    }
+
+    private Cidade getCidade(int id_cidade) throws SQLException {
+        int id_estado = -1;
+        Estado estado = null;
+        Cidade cidade = null;
+
+        Connection con = FabricaConexao.getConnection();
+        PreparedStatement stm = con.prepareStatement(CIDADE);
+        stm.setInt(1,id_cidade);
+        ResultSet rs = stm.executeQuery();
+
+        while (rs.next()) {
+            String nome_cidade = rs.getString("nome");
+            id_estado = rs.getInt("Id_estado");
+
+            PreparedStatement stm2 = con.prepareStatement(ESTADO);
+
+            stm2.setInt(1, id_estado);
+
+            ResultSet res2 = stm2.executeQuery();
+
+            while (res2.next()) {
+                String nome_Estado;
+
+                nome_Estado = res2.getString("nome");
+
+                estado = new Estado(id_estado, nome_Estado);
+            }
+
+            res2.close();
+            stm2.close();
+
+            cidade = new Cidade(id_cidade, nome_cidade, estado);
+        }
+
+        rs.close();
+        stm.close();
+        con.close();
+
+        return cidade;
     }
 }

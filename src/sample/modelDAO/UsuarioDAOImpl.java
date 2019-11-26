@@ -18,7 +18,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     private static String VERIF = "select * from Usuario where email like ? and senha like ?";
     private static String VERIFNOME = "select * from Usuario where nome like ? and senha like ?";
     private static String LISTA = "select * from Usuario";
-    private static String BUSCAID = "select * from Usuario where id like ?";
+    private static String BUSCAID = "select * from Usuario where Id_usuario like ?";
     private static String CIDADE = "select * from Cidade where Id_cidade = ?";
     private static String ESTADO = "select * from Estado where Id_estado = ?";
 
@@ -268,11 +268,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
             stm2.setInt(1, id_cidade);
 
-            ResultSet res2 = stm.executeQuery();
+            ResultSet res2 = stm2.executeQuery();
 
             while (res2.next()) {
                 nome_cidade = res2.getString("nome");
-                id_estado = res2.getInt("Id_estado");
+                id_estado = res2.getInt("id_estado");
             }
 
             res2.close();
@@ -282,7 +282,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
             stm3.setInt(1, id_estado);
 
-            ResultSet res3 = stm.executeQuery();
+            ResultSet res3 = stm3.executeQuery();
 
             while (res3.next()) {
                 String nome_Estado;
@@ -296,7 +296,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             res3.close();
             stm3.close();
 
-            Usuario usuario = new Usuario(nome, email, senha, cidade);
+            u = new Usuario(nome, email, senha, cidade);
         }
 
         res.close();

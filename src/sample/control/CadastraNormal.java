@@ -62,6 +62,7 @@ public class CadastraNormal extends Mensagem{
     public void proximoPasso(ActionEvent event) {
         if(tfNome.getLength() < 3 || tfEmail.getLength() < 3 || pfSenha.getLength() < 3 || pfConfirmacao.getLength() < 3 || cbCidade.getSelectionModel().selectedItemProperty().getValue() == null){
             Aviso(Alert.AlertType.WARNING, "Preencha todos os dados exigidos!");
+            Controle.setOk(false);
         }
         else {
             if(pfSenha.getText().equals(pfConfirmacao.getText())) {
@@ -73,11 +74,12 @@ public class CadastraNormal extends Mensagem{
                 Usuario usuario = new Usuario(nome, email, senha, cidade);
 
                 Controle.setUsuario(usuario);
-                Browser.loadWindows(Browser.EXIBECONDICOESNORMAL);
+                Controle.setOk(true);
             }
             else
             {
                 Aviso(Alert.AlertType.WARNING, "As Senhas estão incorretas!");
+                Controle.setOk(false);
             }
         }
     }

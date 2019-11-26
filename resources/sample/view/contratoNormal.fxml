@@ -24,20 +24,16 @@
                <Font name="System Bold" size="13.0" />
            </font>
        </JFXButton>
-    <JFXScrollPane layoutX="151.0" layoutY="83.0" opacity="0.85" prefHeight="194.0" prefWidth="338.0">
-        <children>
-            <JFXTextArea focusColor="#dff824" text="Ao aceitar os termos o usuário está ciente de que:&#10;&#10;I- As informações são compartilhadas por outros usuários.&#10;II- Os produtos vinculados a determinados comércios são feitos a partir de usuários cadastrados.&#10;III- Verifica-se a classificação avaliativa sobre cada item para sua melhor experiência.&#10;IV- O aplicativo não possui vinculo com os comércios nem quaisquer tipo de produtos.&#10;V- Quaisquer problemas ou erros devem ser relatados tendo em vista o foco no assunto envolvido.&#10;" unFocusColor="WHITE" />
-        </children>
-    </JFXScrollPane>
-    <JFXButton layoutX="220.0" layoutY="315.0" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
-         <font>
-            <Font name="System Bold Italic" size="15.0" />
-         </font></JFXButton>
-    <JFXButton layoutX="351.0" layoutY="315.0" onAction="#proximo" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Avançar">
-         <font>
-            <Font name="System Bold Italic" size="15.0" />
-         </font></JFXButton>
-      <JFXCheckBox fx:id="cbAcordo" layoutX="151.0" layoutY="282.0" text="Li e concordo com os termos de uso" />
-    <JFXProgressBar layoutX="220.0" layoutY="26.0" progress="0.51" />
-</children>
+       <JFXScrollPane layoutX="151.0" layoutY="83.0" opacity="0.85" prefHeight="194.0" prefWidth="338.0">
+           <children>
+               <JFXTextArea focusColor="#dff824" text="Ao aceitar os termos o usuário está ciente de que:&#10;&#10;I- As informações são compartilhadas por outros usuários.&#10;II- Os produtos vinculados a determinados comércios são feitos a partir de usuários cadastrados.&#10;III- Verifica-se a classificação avaliativa sobre cada item para sua melhor experiência.&#10;IV- O aplicativo não possui vinculo com os comércios nem quaisquer tipo de produtos.&#10;V- Quaisquer problemas ou erros devem ser relatados tendo em vista o foco no assunto envolvido.&#10;" unFocusColor="WHITE" />
+           </children>
+       </JFXScrollPane>
+       <JFXButton layoutX="220.0" layoutY="315.0" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
+           <font>
+               <Font name="System Bold Italic" size="15.0" />
+           </font></JFXButton>
+       <JFXCheckBox fx:id="cbAcordo" layoutX="151.0" layoutY="282.0" text="Li e concordo com os termos de uso" />
+       <JFXProgressBar layoutX="220.0" layoutY="26.0" progress="0.51" />
+   </children>
 </AnchorPane>

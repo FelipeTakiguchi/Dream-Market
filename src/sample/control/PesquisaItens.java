@@ -13,7 +13,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sample.Browser;
-import sample.model.Item;
+import sample.model.*;
+import sample.modelDAO.ItemDAO;
+import sample.modelDAO.ItemDAOImpl;
 
 import java.sql.SQLException;
 
@@ -32,16 +34,16 @@ public class PesquisaItens {
     private TableView<Item> tvItem;
 
     @FXML
-    private TableColumn<Item, String> tcItemNome;
+    private TableColumn<Item, Produto> tcItemNome;
 
     @FXML
-    private TableColumn<Item, String> tcItemMarca;
+    private TableColumn<Item, Produto> tcItemMarca;
 
     @FXML
     private TableColumn<Item, Float> tcItemValor;
 
     @FXML
-    private TableColumn<Item, String> tcItemComercio;
+    private TableColumn<Item, Comercio> tcItemComercio;
 
     @FXML
     private TableColumn<Item, String> tcItemCidade;
@@ -50,18 +52,24 @@ public class PesquisaItens {
     private TableColumn<Item, String> tcItemEstado;
 
     @FXML
-    private TableColumn<Item, String> tcItemUsuario;
+    private TableColumn<Item, UsuarioAdm> tcItemUsuario;
 
     @FXML
     void initialize() throws SQLException {
-        tcItemNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        tcItemMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
+        tcItemNome.setCellValueFactory(new PropertyValueFactory<>("produtoNome"));
+        tcItemMarca.setCellValueFactory(new PropertyValueFactory<>("produtoMarca"));
         tcItemValor.setCellValueFactory(new PropertyValueFactory<>("preco"));
-        tcItemComercio.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        tcItemCidade.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        tcItemEstado.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        tcItemUsuario.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        tcItemComercio.setCellValueFactory(new PropertyValueFactory<>("comercioNome"));
+        tcItemCidade.setCellValueFactory(new PropertyValueFactory<>("comercioCidade"));
+        tcItemEstado.setCellValueFactory(new PropertyValueFactory<>("comercioEstado"));
+        tcItemUsuario.setCellValueFactory(new PropertyValueFactory<>("responsavel"));
         ObservableList<Item> listagem = FXCollections.observableArrayList();
+
+        ItemDAO itemDao = new ItemDAOImpl();
+
+        listagem.addAll(itemDao.lista());
+
+        System.out.println("listagem="+listagem);
 
         //listagem = atualizaTabela();
 

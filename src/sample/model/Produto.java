@@ -5,23 +5,20 @@ public class Produto {
     private String nome;
     private String marcca;
     private String descricao;
-    private float valor;
     private int id_responsavel;
 
-    public Produto(int id, String nome, String marcca, String descricao, float valor, int id_responsavel) {
+    public Produto(int id, String nome, String marcca, String descricao, int id_responsavel) {
         this.id = id;
         this.nome = nome;
         this.marcca = marcca;
         this.descricao = descricao;
-        this.valor = valor;
         this.id_responsavel = id_responsavel;
     }
 
-    public Produto(String nome, String marcca, String descricao, float valor, int id_responsavel) {
+    public Produto(String nome, String marcca, String descricao, int id_responsavel) {
         this.nome = nome;
         this.marcca = marcca;
         this.descricao = descricao;
-        this.valor = valor;
         this.id_responsavel = id_responsavel;
     }
 
@@ -55,14 +52,6 @@ public class Produto {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public float getValor() {
-        return valor;
-    }
-
-    public void setValor(float valor) {
-        this.valor = valor;
     }
 
     public int getId_responsavel() {

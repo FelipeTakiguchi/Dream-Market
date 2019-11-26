@@ -23,4 +23,9 @@
             <Font name="System Bold" size="13.0" />
         </font>
     </JFXButton>
+    <JFXButton layoutX="554.0" layoutY="640.0" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
+        <font>
+            <Font name="System Bold Italic" size="18.0" />
+        </font>
+    </JFXButton>
 </AnchorPane>

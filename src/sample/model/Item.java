@@ -11,6 +11,19 @@ public class Item {
     private Date dataAtualizacao;
     private UsuarioAdm responsavel;
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", estoque=" + estoque +
+                ", preco=" + preco +
+                ", produto=" + produto +
+                ", comercio=" + comercio +
+                ", dataAtualizacao=" + dataAtualizacao +
+                ", responsavel=" + responsavel +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
@@ -61,6 +74,26 @@ public class Item {
 
     public UsuarioAdm getResponsavel() {
         return responsavel;
+    }
+
+    public String getComercioEstado(){
+        return this.comercio.getCidade().getEstado().getNome();
+    }
+
+    public String getComercioCidade(){
+        return this.comercio.getCidade().getNome();
+    }
+
+    public String getProdutoNome(){
+        return this.produto.getNome();
+    }
+
+    public String getProdutoMarca(){
+        return this.produto.getMarcca();
+    }
+
+    public String getComercioNome() {
+        return this.comercio.getNome();
     }
 
     public void setResponsavel(UsuarioAdm responsavel) {

@@ -45,7 +45,7 @@ public class ContratoAdm {
         }
     }
 
-    public void proximo(ActionEvent event) throws SQLException {
+    public void proximo() throws Exception {
         if(cbAcordo.isSelected()){
             if(Controle.getUsuario() == null) {
                 Controle.getInstance().addUsuarioAdm(Controle.getUsuarioAdm());
@@ -53,21 +53,8 @@ public class ContratoAdm {
             else{
                 Controle.getInstance().mudaUsuario(Controle.getUsuarioAdm());
             }
-
-            Dialog<ButtonType> dialog = new Dialog<>();
-
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource(Browser.CONCLUIDOADM));
-
-            try{
-                Pane conteudo = loader.load();
-
-                dialog.getDialogPane().setContent(conteudo);
-
-                dialog.showAndWait();
-            }catch (IOException e){
-                e.printStackTrace();
-            }
+        }else{
+            throw new Exception("Aceite os termos de uso para prosseguir");
         }
     }
 }

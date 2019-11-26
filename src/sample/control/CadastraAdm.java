@@ -59,9 +59,10 @@ public class CadastraAdm extends Mensagem {
         stage.close();
     }
 
-    public void proximoPasso(ActionEvent event) {
+    public void proximoPasso() throws Exception {
         if(tfNome.getLength() < 3 || tfEmail.getLength() < 3 || pfSenha.getLength() < 3 || pfConfirmacao.getLength() < 3 || tfTelefone.getLength() < 3 || tfCpf.getLength() < 3){
             Aviso(Alert.AlertType.WARNING, "Preencha todos os dados exigidos!");
+            throw new Exception("Dados errados!");
         }
         else {
             if(pfSenha.getText().equals(pfConfirmacao.getText())) {
@@ -75,29 +76,12 @@ public class CadastraAdm extends Mensagem {
                 UsuarioAdm usuarioAdm = new UsuarioAdm(nome, email, senha, cidade, telefone, cpf);
 
                 Controle.setUsuarioAdm(usuarioAdm);
-//
-//                Stage stage = (Stage) btFechar.getScene().getWindow();
-//                stage.close();
-                System.out.println(Controle.getUsuarioAdm());
 
-                Dialog<ButtonType> dialog = new Dialog<>();
-
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource(Browser.EXIBECONDICOESADM));
-
-                try{
-                    Pane conteudo = loader.load();
-
-                    dialog.getDialogPane().setContent(conteudo);
-
-                    dialog.showAndWait();
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
             }
             else
             {
                 Aviso(Alert.AlertType.WARNING, "As Senhas estão incorretas!");
+                throw new Exception("Dados errados!");
             }
         }
     }

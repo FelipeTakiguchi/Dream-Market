@@ -14,9 +14,9 @@ public class ComercioDAOImpl implements ComercioDAO {
     private static String INSERE = "insert into Comercio(Nome, Endereco, Horario_inicio, Horario_fim, id_cidade) values(?, ?, ?, ?, ?)";
     private static String VERIF = "select nome from Comercio where nome like ?";
     private static String LISTA = "select * from Comercio";
-    private static String BUSCAID = "select * from Comercio where id like ?";
-    private static String CIDADE = "select * from Cidade where id = ?";
-    private static String ESTADO = "select * from Estado where id = ?";
+    private static String BUSCAID = "select * from Comercio where id_comercio = ?";
+    private static String CIDADE = "select * from Cidade where id_cidade = ?";
+    private static String ESTADO = "select * from Estado where id_estado = ?";
     @Override
     public Comercio insere(Comercio comercio) throws SQLException {
         Connection con = FabricaConexao.getConnection();
@@ -145,7 +145,7 @@ public class ComercioDAOImpl implements ComercioDAO {
         ResultSet rs = stm.executeQuery();
 
         while (rs.next()) {
-            int id = rs.getInt("id");
+            int id = rs.getInt("id_cidade");
             String nome_cidade = rs.getString("nome");
             id_estado = rs.getInt("Id_estado");
 
@@ -153,7 +153,7 @@ public class ComercioDAOImpl implements ComercioDAO {
 
             stm2.setInt(1, id_estado);
 
-            ResultSet res2 = stm.executeQuery();
+            ResultSet res2 = stm2.executeQuery();
 
             while (res2.next()) {
                 String nome_Estado;
@@ -168,6 +168,10 @@ public class ComercioDAOImpl implements ComercioDAO {
 
             cidade = new Cidade(id, nome_cidade, estado);
         }
+
+        rs.close();
+        stm.close();
+        con.close();
 
         return cidade;
     }

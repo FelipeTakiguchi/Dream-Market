@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class FabricaConexao {
 
-    private static int MAX_CONNECTIONS=5;
+    private static int MAX_CONNECTIONS=15;
     private static FabricaConexao instance = new FabricaConexao();
 
     private static String ENDERECO_SERVIDOR = "infoprojetos.com.br:3132";

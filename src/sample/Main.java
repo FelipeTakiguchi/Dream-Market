@@ -33,7 +33,7 @@ public class Main extends Application {
         Base controller = loader.getController();
 
         Browser.setController(controller);
-        Browser.loadWindows(Browser.LOGIN);
+        Browser.loadWindows(Browser.PESQUISA);
 
         return mainPane;
     }

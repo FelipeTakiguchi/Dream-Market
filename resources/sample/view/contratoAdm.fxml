@@ -21,10 +21,6 @@
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font></JFXButton>
-        <JFXButton layoutX="361.0" layoutY="309.0" onAction="#proximo" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Avançar">
-         <font>
-            <Font name="System Bold Italic" size="15.0" />
-         </font></JFXButton>
         <JFXProgressBar layoutX="220.0" layoutY="26.0" progress="0.51" />
       <JFXButton fx:id="btFechar" layoutX="596.0" layoutY="13.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
          <cursor>

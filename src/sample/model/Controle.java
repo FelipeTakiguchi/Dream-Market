@@ -19,6 +19,15 @@ public class Controle {
     private ObservableList<Produto> produtos;
     private static Usuario usuario;
     private static UsuarioAdm usuarioAdm;
+    private static Boolean ok;
+
+    public static Boolean getOk() {
+        return ok;
+    }
+
+    public static void setOk(Boolean ok) {
+        Controle.ok = ok;
+    }
 
     private Controle(){
         usuarios = FXCollections.observableArrayList();
