@@ -236,7 +236,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         }
 
         res3.close();
-        stm2.close();
+        stm3.close();
 
         con.close();
 

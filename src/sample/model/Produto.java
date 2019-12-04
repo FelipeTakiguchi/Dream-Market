@@ -54,6 +54,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
+    @Override
+    public String toString() {
+        return nome;
+    }
+
     public int getId_responsavel() {
         return id_responsavel;
     }

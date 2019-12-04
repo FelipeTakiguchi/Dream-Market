@@ -9,9 +9,11 @@ public class MainTestes {
 
             ItemDAO itemDAO = new ItemDAOImpl();
             UsuarioAdmDAO usuarioAdmDAO = new UsuarioAdmDAOImpl();
+            ItemDAO itemDao = new ItemDAOImpl();
+            ProdutoDAO produtoDAO = new ProdutoDAOImpl();
             CidadeDAO cidadeDao = new CidadeDAOImpl();
 
-            System.out.println(cidadeDao.lista());
+            System.out.println(produtoDAO.listaAdm(366));
 
 
         }catch (Exception e){

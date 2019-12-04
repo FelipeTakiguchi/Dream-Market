@@ -59,6 +59,7 @@ public class Menu {
     private static int nivel = 1;
 
     public void initialize() throws SQLException {
+
         if(Controle.getInstance().isAdm(Controle.getUsuario().getNome(), Controle.getUsuario().getSenha())){
             tgModo.setVisible(true);
         }
@@ -67,72 +68,22 @@ public class Menu {
         }
 
         if(nivel == 1){
-            taDescricao.setText("\nPesquisa: Permite que sejam\n" +
-                    "encontrados com facilidade \n" +
-                    "todos os produtos desejados.\n" +
-                    "\n" +
-                    "Dica: Utilize Filtros!\n");
-            btUm.setGraphic(new ImageView(bigImage1));
-            btUm.setLayoutX(710);
-            btUm.setLayoutY(150);
-            btUm.setPrefSize(120, 120);
+            setPosUm();
         }
         else if(nivel == 2){
-            taDescricao.setText("\n" +
-                    "\n" +
-                    "Análise de produtos:\n" +
-                    "Permite a comparação entre\n" +
-                    "dois produtos distintos,\n" +
-                    "exibindo os dados de cada um\n");
-            btDois.setLayoutX(710);
-            btDois.setLayoutY(150);
-            btDois.setPrefSize(120, 120);
+            setPosDois();
         }
         else if(nivel == 3){
-            taDescricao.setText("\n" +
-                    "\n" +
-                    "Listagem: Utilize esta opção\n" +
-                    "para criar suas próprias listas\n" +
-                    "que poderão auxiliar a encon-\n" +
-                    "trar seus produtos na hora da \n" +
-                    "compra!\n  ");
-            btTres.setLayoutX(710);
-            btTres.setLayoutY(150);
-            btTres.setPrefSize(120, 120);
+            setPosTres();
         }
         else if(nivel == 4) {
-            taDescricao.setText("\n" +
-                    "\n" +
-                    "\n" +
-                    "Gerador de Arquivo:\n" +
-                    "Escolha uma lista, e gere seu\n" +
-                    "próprio arquivo!\n");
-            btQuatro.setLayoutX(710);
-            btQuatro.setLayoutY(150);
-            btQuatro.setPrefSize(120, 120);
+            setPosQuatro();
         }
         else if(nivel == 5){
-            taDescricao.setText("\n" +
-                    "\n" +
-                    "Upgrade: Aprimore sua conta!\n" +
-                    "Torne-se um moderador e \n" +
-                    "ajude os outros usuários inse-\n" +
-                    "rindo novos registros!");
-            btCinco.setLayoutX(710);
-            btCinco.setLayoutY(150);
-            btCinco.setPrefSize(120, 120);
+            setPosCinco();
         }
         else if(nivel == 6){
-            taDescricao.setText("\n" +
-                    "Log Out: Não deixe sua conta\n" +
-                    "logada sem necessidades!\n" +
-                    "Efetue o Log Out sempre \n" +
-                    "que desejar sair ou entrar\n" +
-                    "em outra conta\n" +
-                    "\n");
-            btSeis.setLayoutX(710);
-            btSeis.setLayoutY(150);
-            btSeis.setPrefSize(120, 120);
+            setPosSeis();
         }
     }
 
@@ -153,7 +104,6 @@ public class Menu {
             }
         }
 
-        System.out.println(nivel);
         alteraPosicao(nivel);
     }
 
@@ -175,143 +125,167 @@ public class Menu {
         btSeis.setGraphic(new ImageView(image6));
     }
 
+    private void setPosUm(){
+        taDescricao.setText("\nPesquisa: Permite que sejam\n" +
+                "encontrados com facilidade \n" +
+                "todos os produtos desejados.\n" +
+                "\n" +
+                "Dica: Utilize Filtros!\n");
+        btUm.setPrefSize(120, 120);
+        btUm.setGraphic(new ImageView(bigImage1));
+        btUm.setLayoutX(690);
+        btUm.setLayoutY(130);
+        btDois.setLayoutX(800);
+        btDois.setLayoutY(340);
+        btTres.setLayoutX(710);
+        btTres.setLayoutY(505);
+        btQuatro.setLayoutX(510);
+        btQuatro.setLayoutY(505);
+        btCinco.setLayoutX(390);
+        btCinco.setLayoutY(340);
+        btSeis.setLayoutX(510);
+        btSeis.setLayoutY(150);
+    }
+
+    private void setPosDois() {
+        taDescricao.setText("\n" +
+                "\n" +
+                "Análise de produtos:\n" +
+                "Permite a comparação entre\n" +
+                "dois produtos distintos,\n" +
+                "exibindo os dados de cada um\n");
+        btDois.setPrefSize(120, 120);
+        btDois.setGraphic(new ImageView(bigImage2));
+        btUm.setLayoutX(510);
+        btUm.setLayoutY(150);
+        btDois.setLayoutX(690);
+        btDois.setLayoutY(130);
+        btTres.setLayoutX(800);
+        btTres.setLayoutY(340);
+        btQuatro.setLayoutX(710);
+        btQuatro.setLayoutY(505);
+        btCinco.setLayoutX(510);
+        btCinco.setLayoutY(505);
+        btSeis.setLayoutX(390);
+        btSeis.setLayoutY(340);
+    }
+
+    private void setPosTres() {
+        taDescricao.setText("\n" +
+                "\n" +
+                "Listagem: Utilize esta opção\n" +
+                "para criar suas próprias listas\n" +
+                "que poderão auxiliar a encon-\n" +
+                "trar seus produtos na hora da \n" +
+                "compra!\n  ");
+        btTres.setPrefSize(120, 120);
+        btTres.setGraphic(new ImageView(bigImage3));
+        btUm.setLayoutX(390);
+        btUm.setLayoutY(340);
+        btDois.setLayoutX(510);
+        btDois.setLayoutY(150);
+        btTres.setLayoutX(690);
+        btTres.setLayoutY(130);
+        btQuatro.setLayoutX(800);
+        btQuatro.setLayoutY(340);
+        btCinco.setLayoutX(710);
+        btCinco.setLayoutY(505);
+        btSeis.setLayoutX(510);
+        btSeis.setLayoutY(505);
+    }
+
+    private void setPosQuatro(){
+        taDescricao.setText("\n" +
+                "\n" +
+                "\n" +
+                "Gerador de Arquivo:\n" +
+                "Escolha uma lista, e gere seu\n" +
+                "próprio arquivo!\n");
+        btQuatro.setPrefSize(120, 120);
+        btQuatro.setGraphic(new ImageView(bigImage4));
+        btUm.setLayoutX(510);
+        btUm.setLayoutY(505);
+        btDois.setLayoutX(390);
+        btDois.setLayoutY(340);
+        btTres.setLayoutX(510);
+        btTres.setLayoutY(150);
+        btQuatro.setLayoutX(690);
+        btQuatro.setLayoutY(130);
+        btCinco.setLayoutX(800);
+        btCinco.setLayoutY(340);
+        btSeis.setLayoutX(710);
+        btSeis.setLayoutY(505);
+    }
+
+    private void setPosCinco(){
+        taDescricao.setText("\n" +
+                "\n" +
+                "Upgrade: Aprimore sua conta!\n" +
+                "Torne-se um moderador e \n" +
+                "ajude os outros usuários inse-\n" +
+                "rindo novos registros!");
+        btCinco.setPrefSize(120, 120);
+        btCinco.setGraphic(new ImageView(bigImage5));
+        btUm.setLayoutX(710);
+        btUm.setLayoutY(505);
+        btDois.setLayoutX(510);
+        btDois.setLayoutY(505);
+        btTres.setLayoutX(390);
+        btTres.setLayoutY(340);
+        btQuatro.setLayoutX(510);
+        btQuatro.setLayoutY(150);
+        btCinco.setLayoutX(690);
+        btCinco.setLayoutY(130);
+        btSeis.setLayoutX(800);
+        btSeis.setLayoutY(340);
+    }
+
+    private void setPosSeis(){
+        taDescricao.setText("\n" +
+                "Log Out: Não deixe sua conta\n" +
+                "logada sem necessidades!\n" +
+                "Efetue o Log Out sempre \n" +
+                "que desejar sair ou entrar\n" +
+                "em outra conta\n" +
+                "\n");
+        btSeis.setPrefSize(120, 120);
+        btSeis.setGraphic(new ImageView(bigImage6));
+        btUm.setLayoutX(800);
+        btUm.setLayoutY(340);
+        btDois.setLayoutX(710);
+        btDois.setLayoutY(505);
+        btTres.setLayoutX(510);
+        btTres.setLayoutY(505);
+        btQuatro.setLayoutX(390);
+        btQuatro.setLayoutY(340);
+        btCinco.setLayoutX(510);
+        btCinco.setLayoutY(150);
+        btSeis.setLayoutX(690);
+        btSeis.setLayoutY(130);
+    }
+
     private void alteraPosicao(int nv){
         resetaSize();
         resetaImagem();
 
         switch (nv){
             case 1:
-                taDescricao.setText("\nPesquisa: Permite que sejam\n" +
-                        "encontrados com facilidade \n" +
-                        "todos os produtos desejados.\n" +
-                        "\n" +
-                        "Dica: Utilize Filtros!\n");
-                btUm.setPrefSize(120, 120);
-                btUm.setGraphic(new ImageView(bigImage1));
-                btUm.setLayoutX(690);
-                btUm.setLayoutY(130);
-                btDois.setLayoutX(800);
-                btDois.setLayoutY(340);
-                btTres.setLayoutX(710);
-                btTres.setLayoutY(505);
-                btQuatro.setLayoutX(510);
-                btQuatro.setLayoutY(505);
-                btCinco.setLayoutX(390);
-                btCinco.setLayoutY(340);
-                btSeis.setLayoutX(510);
-                btSeis.setLayoutY(150);
+                setPosUm();
                 break;
             case 2:
-                taDescricao.setText("\n" +
-                        "\n" +
-                        "Análise de produtos:\n" +
-                        "Permite a comparação entre\n" +
-                        "dois produtos distintos,\n" +
-                        "exibindo os dados de cada um\n");
-                btDois.setPrefSize(120, 120);
-                btDois.setGraphic(new ImageView(bigImage2));
-                btUm.setLayoutX(510);
-                btUm.setLayoutY(150);
-                btDois.setLayoutX(690);
-                btDois.setLayoutY(130);
-                btTres.setLayoutX(800);
-                btTres.setLayoutY(340);
-                btQuatro.setLayoutX(710);
-                btQuatro.setLayoutY(505);
-                btCinco.setLayoutX(510);
-                btCinco.setLayoutY(505);
-                btSeis.setLayoutX(390);
-                btSeis.setLayoutY(340);
+                setPosDois();
                 break;
             case 3:
-                taDescricao.setText("\n" +
-                        "\n" +
-                        "Listagem: Utilize esta opção\n" +
-                        "para criar suas próprias listas\n" +
-                        "que poderão auxiliar a encon-\n" +
-                        "trar seus produtos na hora da \n" +
-                        "compra!\n  ");
-                btTres.setPrefSize(120, 120);
-                btTres.setGraphic(new ImageView(bigImage3));
-                btUm.setLayoutX(390);
-                btUm.setLayoutY(340);
-                btDois.setLayoutX(510);
-                btDois.setLayoutY(150);
-                btTres.setLayoutX(690);
-                btTres.setLayoutY(130);
-                btQuatro.setLayoutX(800);
-                btQuatro.setLayoutY(340);
-                btCinco.setLayoutX(710);
-                btCinco.setLayoutY(505);
-                btSeis.setLayoutX(510);
-                btSeis.setLayoutY(505);
+                setPosTres();
                 break;
             case 4:
-                taDescricao.setText("\n" +
-                        "\n" +
-                        "\n" +
-                        "Gerador de Arquivo:\n" +
-                        "Escolha uma lista, e gere seu\n" +
-                        "próprio arquivo!\n");
-                btQuatro.setPrefSize(120, 120);
-                btQuatro.setGraphic(new ImageView(bigImage4));
-                btUm.setLayoutX(510);
-                btUm.setLayoutY(505);
-                btDois.setLayoutX(390);
-                btDois.setLayoutY(340);
-                btTres.setLayoutX(510);
-                btTres.setLayoutY(150);
-                btQuatro.setLayoutX(690);
-                btQuatro.setLayoutY(130);
-                btCinco.setLayoutX(800);
-                btCinco.setLayoutY(340);
-                btSeis.setLayoutX(710);
-                btSeis.setLayoutY(505);
+                setPosQuatro();
                 break;
             case 5:
-                taDescricao.setText("\n" +
-                        "\n" +
-                        "Upgrade: Aprimore sua conta!\n" +
-                        "Torne-se um moderador e \n" +
-                        "ajude os outros usuários inse-\n" +
-                        "rindo novos registros!");
-                btCinco.setPrefSize(120, 120);
-                btCinco.setGraphic(new ImageView(bigImage5));
-                btUm.setLayoutX(710);
-                btUm.setLayoutY(505);
-                btDois.setLayoutX(510);
-                btDois.setLayoutY(505);
-                btTres.setLayoutX(390);
-                btTres.setLayoutY(340);
-                btQuatro.setLayoutX(510);
-                btQuatro.setLayoutY(150);
-                btCinco.setLayoutX(690);
-                btCinco.setLayoutY(130);
-                btSeis.setLayoutX(800);
-                btSeis.setLayoutY(340);
+                setPosCinco();
                 break;
             case 6:
-                taDescricao.setText("\n" +
-                        "Log Out: Não deixe sua conta\n" +
-                        "logada sem necessidades!\n" +
-                        "Efetue o Log Out sempre \n" +
-                        "que desejar sair ou entrar\n" +
-                        "em outra conta\n" +
-                        "\n");
-                btSeis.setPrefSize(120, 120);
-                btSeis.setGraphic(new ImageView(bigImage6));
-                btUm.setLayoutX(800);
-                btUm.setLayoutY(340);
-                btDois.setLayoutX(710);
-                btDois.setLayoutY(505);
-                btTres.setLayoutX(510);
-                btTres.setLayoutY(505);
-                btQuatro.setLayoutX(390);
-                btQuatro.setLayoutY(340);
-                btCinco.setLayoutX(510);
-                btCinco.setLayoutY(150);
-                btSeis.setLayoutX(690);
-                btSeis.setLayoutY(130);
+                setPosSeis();
                 break;
         }
     }

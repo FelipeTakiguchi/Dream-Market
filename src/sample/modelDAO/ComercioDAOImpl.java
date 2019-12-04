@@ -17,6 +17,7 @@ public class ComercioDAOImpl implements ComercioDAO {
     private static String BUSCAID = "select * from Comercio where id_comercio = ?";
     private static String CIDADE = "select * from Cidade where id_cidade = ?";
     private static String ESTADO = "select * from Estado where id_estado = ?";
+
     @Override
     public Comercio insere(Comercio comercio) throws SQLException {
         Connection con = FabricaConexao.getConnection();
@@ -80,9 +81,9 @@ public class ComercioDAOImpl implements ComercioDAO {
         ResultSet rs = stm.executeQuery();
 
         while (rs.next()){
-            int id = rs.getInt("Id_estado");
+            int id = rs.getInt("id_comercio");
             String nome = rs.getString("nome");
-            String endereco = rs.getString("nome");
+            String endereco = rs.getString("Endereco");
             Time horarioInicio = rs.getTime("Horario_inicio");
             Time horarioFim = rs.getTime("Horario_fim");
             int id_cidade = rs.getInt("id_cidade");
@@ -94,9 +95,9 @@ public class ComercioDAOImpl implements ComercioDAO {
             comercios.add(comercio);
         }
 
-        con.close();
         stm.close();
         rs.close();
+        con.close();
 
         return comercios;
     }

@@ -11,17 +11,16 @@ public class Item {
     private Date dataAtualizacao;
     private UsuarioAdm responsavel;
 
+    public String mostra(){
+        return produto.getDescricao();
+    }
+
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", estoque=" + estoque +
-                ", preco=" + preco +
-                ", produto=" + produto +
-                ", comercio=" + comercio +
-                ", dataAtualizacao=" + dataAtualizacao +
-                ", responsavel=" + responsavel +
-                '}';
+        return getProduto().getNome()
+                +"["+
+                getComercio().getNome()
+                +"]";
     }
 
     public int getId() {

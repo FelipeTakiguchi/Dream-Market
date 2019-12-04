@@ -1,6 +1,5 @@
 package sample.modelDAO;
 
-import javafx.collections.ObservableList;
 import sample.model.Cidade;
 import sample.model.Estado;
 

@@ -53,12 +53,6 @@ public class CadastraAdm extends Mensagem {
         cbCidade.setItems(cidades);
     }
 
-    @FXML
-    void acaoFechar(){
-        Stage stage = (Stage) btFechar.getScene().getWindow();
-        stage.close();
-    }
-
     public void proximoPasso() throws Exception {
         if(tfNome.getLength() < 3 || tfEmail.getLength() < 3 || pfSenha.getLength() < 3 || pfConfirmacao.getLength() < 3 || tfTelefone.getLength() < 3 || tfCpf.getLength() < 3){
             Aviso(Alert.AlertType.WARNING, "Preencha todos os dados exigidos!");
@@ -76,7 +70,6 @@ public class CadastraAdm extends Mensagem {
                 UsuarioAdm usuarioAdm = new UsuarioAdm(nome, email, senha, cidade, telefone, cpf);
 
                 Controle.setUsuarioAdm(usuarioAdm);
-
             }
             else
             {

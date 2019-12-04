@@ -13,7 +13,7 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
 
     private static String INSERE = "insert into UsuarioADM(id_usuario, telefone, cpf) values(?, ?, ?)";
     private static String VERIF = "select * from UsuarioADM where Id_usuario = ?";
-    private static String VERIFEMAIL = "select * from UsuarioADM where email like ? and senha like ?";
+    private static String VERIFEMAIL = "select * from UsuarioADM where id_usuario = ?";
     private static String LISTA = "select * from UsuarioADM";
     private static String BUSCAID = "select * from UsuarioADM where id_usuario = ?";
     private static String CIDADE = "select * from Cidade where Id_cidade = ?";
@@ -102,8 +102,8 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
         Usuario usuario = null;
         UsuarioAdm u = null;
 
-        if(Controle.getInstance().verificaUsuarioNome(Email, Senha) != null){
-            usuario = Controle.getInstance().verificaUsuarioNome(Email, Senha);
+        if(Controle.getInstance().verificaUsuarioEmail(Email, Senha) != null){
+            usuario = Controle.getInstance().verificaUsuarioEmail(Email, Senha);
         }
         else {
             return null;
@@ -156,9 +156,9 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
             Usuarios.add(cat);
         }
 
-        con.close();
         stm.close();
         rs.close();
+        con.close();
 
         return Usuarios;
     }
@@ -229,6 +229,10 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
 
             cidade = new Cidade(id, nome_cidade, estado);
         }
+
+        stm.close();
+        rs.close();
+        con.close();
 
         return cidade;
     }

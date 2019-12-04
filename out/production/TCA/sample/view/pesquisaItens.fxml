@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TableColumn?>
@@ -23,7 +26,7 @@
             <Font name="System Bold" size="13.0" />
         </font>
     </JFXButton>
-   <TableView opacity="0.5" fx:id="tvItem" layoutX="109.0" layoutY="157.0" onMouseClicked="#mostraDescricao" prefHeight="430.0" prefWidth="700.0">
+   <TableView fx:id="tvItem" layoutX="99.0" layoutY="157.0" onMouseClicked="#mostraDescricao" opacity="0.5" prefHeight="430.0" prefWidth="700.0">
      <columns>
          <TableColumn fx:id="tcItemNome" prefWidth="108.0" text="Nome" />
          <TableColumn fx:id="tcItemMarca" prefWidth="90.0" text="Marca" />
@@ -44,4 +47,9 @@
          <Font name="System Bold Italic" size="18.0" />
       </font>
    </JFXButton>
+   <JFXButton layoutX="376.0" layoutY="58.0" onAction="#pesquisarItens" text="Ir" />
+   <JFXTextField fx:id="tfPesquisa" layoutX="241.0" layoutY="52.0" onKeyPressed="#verificaTecla" promptText="Pesquisa" />
+   <JFXComboBox fx:id="cbComercio" layoutX="573.0" layoutY="58.0" onAction="#procuroComercio" prefHeight="25.0" prefWidth="135.0" promptText="Comércio" styleClass="botao" stylesheets="@../css/stylesheet.css" />
+   <JFXComboBox fx:id="cbCidade" layoutX="903.0" layoutY="52.0" onAction="#procuraCidade" prefHeight="25.0" prefWidth="135.0" promptText="Cidade" styleClass="botao" stylesheets="@../css/stylesheet.css" />
+   <JFXProgressBar fx:id="pbCarrega" layoutX="315.0" layoutY="115.0" prefHeight="30.0" prefWidth="268.0" />
 </AnchorPane>

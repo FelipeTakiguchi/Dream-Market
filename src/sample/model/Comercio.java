@@ -14,6 +14,11 @@ public class Comercio {
         return Id;
     }
 
+    @Override
+    public String toString() {
+        return nome;
+    }
+
     public void setId(int id) {
         Id = id;
     }

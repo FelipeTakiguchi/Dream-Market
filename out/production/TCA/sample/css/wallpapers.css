@@ -33,3 +33,7 @@
 .wallpaper9{
     -fx-background-image: url("/sample/images/background1.jpg");
 }
+
+.wallpaper10{
+    -fx-background-image: url("/sample/images/menuadm.jpg");
+}

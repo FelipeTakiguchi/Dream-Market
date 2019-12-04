@@ -42,10 +42,6 @@ public class CadastraNormal extends Mensagem{
     private JFXComboBox<Cidade> cbCidade;
     @FXML
     private Label lbInfo;
-    @FXML
-    private JFXTextField tfEstado;
-    @FXML
-    private JFXTextField tfNovaCidade;
 
     public void initialize() throws SQLException {
         ObservableList<Cidade> cidades = FXCollections.observableArrayList();
@@ -53,16 +49,10 @@ public class CadastraNormal extends Mensagem{
         cbCidade.setItems(cidades);
     }
 
-    @FXML
-    void acaoFechar(){
-        Stage stage = (Stage) btFechar.getScene().getWindow();
-        stage.close();
-    }
-
-    public void proximoPasso(ActionEvent event) {
+    public void proximoPasso() throws Exception{
         if(tfNome.getLength() < 3 || tfEmail.getLength() < 3 || pfSenha.getLength() < 3 || pfConfirmacao.getLength() < 3 || cbCidade.getSelectionModel().selectedItemProperty().getValue() == null){
             Aviso(Alert.AlertType.WARNING, "Preencha todos os dados exigidos!");
-            Controle.setOk(false);
+            throw new Exception("Dados errados!");
         }
         else {
             if(pfSenha.getText().equals(pfConfirmacao.getText())) {
@@ -74,12 +64,11 @@ public class CadastraNormal extends Mensagem{
                 Usuario usuario = new Usuario(nome, email, senha, cidade);
 
                 Controle.setUsuario(usuario);
-                Controle.setOk(true);
             }
             else
             {
                 Aviso(Alert.AlertType.WARNING, "As Senhas estão incorretas!");
-                Controle.setOk(false);
+                throw new Exception("Dados errados!");
             }
         }
     }

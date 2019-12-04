@@ -31,7 +31,7 @@ public class ContratoNormal {
         Browser.loadWindows(Browser.CADASTRANORMAL);
     }
 
-    public void proximo(ActionEvent event) throws SQLException {
+    public void proximo() throws SQLException {
         if(cbAcordo.isSelected()){
             Controle.getInstance().addUsuario(Controle.getUsuario());
             System.out.println(Controle.getUsuario());

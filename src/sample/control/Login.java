@@ -10,6 +10,8 @@ import javafx.scene.input.MouseEvent;
 import sample.Browser;
 import sample.model.Controle;
 import sample.model.Usuario;
+import sample.modelDAO.UsuarioAdmDAO;
+import sample.modelDAO.UsuarioAdmDAOImpl;
 
 import java.sql.SQLException;
 import java.util.Objects;

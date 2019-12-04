@@ -79,9 +79,9 @@ public class EstadoDAOImpl implements EstadoDAO {
             Estados.add(cat);
         }
 
-        con.close();
         stm.close();
         rs.close();
+        con.close();
 
         return Estados;
     }

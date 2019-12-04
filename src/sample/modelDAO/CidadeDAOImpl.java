@@ -129,7 +129,8 @@ public class CidadeDAOImpl implements CidadeDAO {
 
         stm.close();
         rs.close();
-
+        con.close();
+        
         return Cidades;
     }
 

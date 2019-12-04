@@ -12,8 +12,10 @@ public class Controle {
     ProdutoDAO produtoDAO = new ProdutoDAOImpl();
     UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
     UsuarioAdmDAO usuarioAdmDAO = new UsuarioAdmDAOImpl();
+    ComercioDAO comercioDAO = new ComercioDAOImpl();
     CidadeDAO cidadeDAO = new CidadeDAOImpl();
     EstadoDAO estadoDAO = new EstadoDAOImpl();
+    ItemDAO itemDAO = new ItemDAOImpl();
 
     private ObservableList<Usuario> usuarios;
     private ObservableList<Produto> produtos;
@@ -112,5 +114,71 @@ public class Controle {
         }
 
         return false;
+    }
+
+    public UsuarioAdm verificaAdm(String credencial, String senha) throws SQLException{
+        if(usuarioAdmDAO.verif(credencial, senha) != null){
+            return usuarioAdmDAO.verif(credencial, senha);
+        }
+        if(usuarioAdmDAO.verifEmail(credencial, senha) != null){
+            return usuarioAdmDAO.verifEmail(credencial, senha);
+        }
+
+        System.out.println("Result > " + usuarioAdmDAO.verifEmail(credencial, senha));
+
+        return null;
+    }
+
+    public ObservableList<Item> pesquisaItem(String nome) throws SQLException {
+        ObservableList<Item> items = (ObservableList<Item>) itemDAO.buscaNome(nome);
+        return items;
+    }
+
+    public List<Item> listaItems() throws SQLException{
+        List<Item> items = itemDAO.lista();
+        return items;
+    }
+
+    public List<Comercio> listaComercios() throws  SQLException{
+        List<Comercio> comercios = comercioDAO.lista();
+        return comercios;
+    }
+
+    public List<Produto> listaProdutos() throws SQLException{
+        List<Produto> produtos = produtoDAO.lista();
+        return produtos;
+    }
+
+    public Comercio addComercio(Comercio comercio) throws SQLException {
+        return comercioDAO.insere(comercio);
+    }
+
+    public List<Produto> listaProdutosAdm() throws SQLException{
+        List<Produto> produtos = produtoDAO.listaAdm(usuario.getId());
+        return produtos;
+    }
+
+    public void atualizaItem(Item item, Float valor) throws SQLException{
+        itemDAO.atualiza(item, valor);
+    }
+
+    public void addProduto(Produto produto) throws SQLException{
+        produtoDAO.insere(produto.getNome(), produto.getMarcca(), produto.getDescricao(), produto.getId_responsavel());
+    }
+
+    public void addItem(Item item) throws SQLException {
+        itemDAO.insere(item);
+    }
+
+    public List<Item> listaItemsAdm() throws SQLException {
+        return itemDAO.listaAdm(usuario);
+    }
+
+    public List<Item> pesquisaComercio(Comercio comercio) throws SQLException {
+        return itemDAO.pesquisaComercio(comercio);
+    }
+
+    public List<Item> pesquisaCidade(Cidade cidade) throws SQLException{
+        return itemDAO.pesquisaCidade(cidade);
     }
 }

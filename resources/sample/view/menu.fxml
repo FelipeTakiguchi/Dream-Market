@@ -90,7 +90,7 @@
          </styleClass>
       </JFXButton>
       <JFXDialog fx:id="jfxDialog" layoutX="33.0" layoutY="126.0" prefHeight="129.0" prefWidth="139.0" />
-      <JFXToggleButton fx:id="tgModo" layoutX="537.0" layoutY="34.0" onAction="#alteraModo" styleClass="borda" stylesheets="@../css/stylesheet.css" text="Usuário comum" textAlignment="CENTER" textFill="#00ccff">
+      <JFXToggleButton fx:id="tgModo" layoutX="560.0" layoutY="34.0" onAction="#alteraModo" styleClass="borda" stylesheets="@../css/stylesheet.css" text="Usuário comum" textAlignment="CENTER" textFill="#00ccff">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font></JFXToggleButton>
