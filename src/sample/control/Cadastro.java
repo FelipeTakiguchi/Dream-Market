@@ -105,7 +105,7 @@ public class Cadastro {
                             }
 
                             if (res2.isPresent() && res2.get() == proximoButtonType) {
-                                ContratoNormal controlador2 = loader.getController();
+                                ContratoNormal controlador2 = loader2.getController();
                                 try {
                                     controlador2.proximo();
                                     flag2 = true;

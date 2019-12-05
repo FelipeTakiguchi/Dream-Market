@@ -16,6 +16,7 @@ import sample.model.Controle;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Optional;
 
 public class Menu {
 
@@ -310,8 +311,9 @@ public class Menu {
         Browser.loadWindows(Browser.LOGIN);
     }
 
-    public void opcaoAdm() throws IOException {
+    public void opcaoAdm() {
         Dialog<ButtonType> dialog = new Dialog<>();
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(Browser.MUDAADM));
 
@@ -319,8 +321,62 @@ public class Menu {
             Pane conteudo = loader.load();
 
             dialog.getDialogPane().setContent(conteudo);
+            ButtonType proximoButtonType = new ButtonType("Próximo", ButtonBar.ButtonData.NEXT_FORWARD);
+            dialog.getDialogPane().getButtonTypes().add(proximoButtonType);
+            boolean flag = false;
+            while(!flag) {
+                Optional<ButtonType> res = dialog.showAndWait();
 
-            dialog.showAndWait();
+                if(!dialog.isShowing()){
+                    flag = true;
+                }
+
+                if (res.isPresent() && res.get() == proximoButtonType) {
+                    MudaAdm controle = loader.getController();
+                    try {
+                        controle.proximo();
+
+                        flag = true;
+
+                        FXMLLoader loader2 = new FXMLLoader();
+                        loader2.setLocation(getClass().getResource(Browser.EXIBECONDICOESADM));
+
+                        conteudo = loader2.load();
+
+                        dialog.getDialogPane().getButtonTypes().clear();
+                        dialog.getDialogPane().setContent(conteudo);
+                        ButtonType proximoButtonType2 = new ButtonType("Próximo", ButtonBar.ButtonData.NEXT_FORWARD);
+                        dialog.getDialogPane().getButtonTypes().add(proximoButtonType2);
+                        boolean flag2 = false;
+                        while(!flag2) {
+                            Optional<ButtonType> res2 = dialog.showAndWait();
+
+                            if (res2.isPresent() && res2.get() == proximoButtonType2) {
+                                try {
+                                    ContratoAdm controle2 = loader2.getController();
+                                    controle2.proximo();
+                                    FXMLLoader loader3 = new FXMLLoader();
+                                    loader3.setLocation(getClass().getResource(Browser.CONCLUIDOADM));
+
+                                    conteudo = loader3.load();
+
+                                    dialog.getDialogPane().getButtonTypes().clear();
+                                    dialog.getDialogPane().setContent(conteudo);
+                                    dialog.showAndWait();
+
+                                    flag2 = true;
+                                }catch (Exception e){
+                                    flag2 = true;
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    } catch (Exception e) {
+                        flag = false;
+                    }
+
+                }
+            }
         }catch (IOException e){
             e.printStackTrace();
         }

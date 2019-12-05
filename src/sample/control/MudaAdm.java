@@ -31,26 +31,26 @@ public class MudaAdm {
         stage.close();
     }
 
-    public void proximo(ActionEvent event) throws SQLException {
+    public void proximo() {
         String telefone = tfTelefone.getText();
         String cpf = tfCpf.getText();
 
         Usuario usuario = Controle.getUsuario();
         UsuarioAdm usuarioAdm = new UsuarioAdm(usuario.getNome(), usuario.getEmail(), usuario.getSenha(),usuario.getCidade(), telefone, cpf);
         Controle.setUsuarioAdm(usuarioAdm);
-        Dialog<ButtonType> dialog = new Dialog<>();
+       // Dialog<ButtonType> dialog = new Dialog<>();
 
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(Browser.EXIBECONDICOESADM));
-
-        try{
-            Pane conteudo = loader.load();
-
-            dialog.getDialogPane().setContent(conteudo);
-
-            dialog.showAndWait();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+//        FXMLLoader loader = new FXMLLoader();
+//        loader.setLocation(getClass().getResource(Browser.EXIBECONDICOESADM));
+//
+//        try{
+//            Pane conteudo = loader.load();
+//
+//            dialog.getDialogPane().setContent(conteudo);
+//
+//            dialog.showAndWait();
+//        }catch (IOException e){
+//            e.printStackTrace();
+//        }
     }
 }
