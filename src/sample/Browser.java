@@ -18,7 +18,7 @@ public class Browser {
     public static final String EXIBECONDICOESNORMAL= "/sample/view/contratoNormal.fxml";
     public static final String EXIBECONDICOESADM= "/sample/view/contratoAdm.fxml";
     public static final String CONCLUINORMAL= "/sample/view/concluidoNormal.fxml";
-    public static final String CONCLUIDOADM= "/sample/view/concluidoNormal.fxml";
+    public static final String CONCLUIDOADM= "/sample/view/concluidoAdm.fxml";
     public static final String CADASTRACIDADE= "/sample/view/adcionaCidade.fxml";
     public static final String PESQUISA= "/sample/view/pesquisaItens.fxml";
     public static final String COMPARAITENS= "/sample/view/comparaItens.fxml";

@@ -16,7 +16,7 @@ public class CidadeDAOImpl implements CidadeDAO {
     private static String INSERE = "insert into Cidade(Nome, Id_estado) values(?, ?)";
     private static String VERIF = "select * from Cidade where nome like ?";
     private static String LISTA = "select * from Cidade";
-    private static String BUSCAID = "select * from Cidade where id_cidade like ?";
+    private static String BUSCAID = "select * from Cidade where id_cidade = ?";
     private static String ESTADO = "select * from Estado where Id_estado = ?";
 
     @Override
@@ -150,6 +150,8 @@ public class CidadeDAOImpl implements CidadeDAO {
         stm.setInt(1,id);
 
         ResultSet res = stm.executeQuery();
+
+        System.out.println(res.next());
 
         while(res.next()){
             String nome = res.getString("nome");

@@ -34,7 +34,7 @@ public class Login extends Mensagem{
     }
 
     public void logarUsuario() throws SQLException {
-        if(tfEmail.getText().length() > 3 && pfSenha.getText().length() > 3){
+        if(tfEmail.getText().length() >= 3 && pfSenha.getText().length() >= 3){
             Usuario verificacao = Controle.getInstance().verificaUsuarioEmail(tfEmail.getText(), pfSenha.getText());
             Usuario verificacao2 = Controle.getInstance().verificaUsuarioNome(tfEmail.getText(), pfSenha.getText());
 

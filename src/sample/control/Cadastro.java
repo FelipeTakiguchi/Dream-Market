@@ -164,37 +164,35 @@ public class Cadastro {
                         FXMLLoader loader2 = new FXMLLoader();
                         loader2.setLocation(getClass().getResource(Browser.EXIBECONDICOESADM));
 
-                        Pane conteudo2 = loader2.load();
+                        conteudo = loader2.load();
 
                         dialog.getDialogPane().getButtonTypes().clear();
-                        dialog.getDialogPane().setContent(conteudo2);
+                        dialog.getDialogPane().setContent(conteudo);
                         ButtonType proximoButtonType2 = new ButtonType("Próximo", ButtonBar.ButtonData.NEXT_FORWARD);
                         dialog.getDialogPane().getButtonTypes().add(proximoButtonType2);
                         boolean flag2 = false;
-
                         while(!flag2) {
                             Optional<ButtonType> res2 = dialog.showAndWait();
 
                             System.out.println(dialog.isShowing());
-                            if(!dialog.isShowing()){
-                                flag2 = true;
-                            }
 
-                            if (res2.isPresent() && res2.get() == proximoButtonType) {
-                                ContratoAdm controlador2 = loader.getController();
+                            if (res2.isPresent() && res2.get() == proximoButtonType2) {
                                try {
-                                   controlador2.proximo();
-                                   flag2 = true;
+                                   ContratoAdm controle2 = loader2.getController();
+                                   controle2.proximo();
                                    FXMLLoader loader3 = new FXMLLoader();
                                    loader3.setLocation(getClass().getResource(Browser.CONCLUIDOADM));
 
-                                   Pane conteudo3 = loader3.load();
+                                   conteudo = loader3.load();
 
                                    dialog.getDialogPane().getButtonTypes().clear();
-                                   dialog.getDialogPane().setContent(conteudo3);
+                                   dialog.getDialogPane().setContent(conteudo);
                                    dialog.showAndWait();
+
+                                   flag2 = true;
                                }catch (Exception e){
-                                   flag2 = false;
+                                   flag2 = true;
+                                   e.printStackTrace();
                                }
                             }
                         }

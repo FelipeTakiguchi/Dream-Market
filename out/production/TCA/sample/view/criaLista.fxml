@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
 <?import java.lang.String?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -20,9 +25,39 @@
             <Font name="System Bold" size="13.0" />
         </font>
     </JFXButton>
-    <JFXButton layoutX="554.0" layoutY="640.0" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
+    <JFXButton layoutX="602.0" layoutY="642.0" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
         <font>
             <Font name="System Bold Italic" size="18.0" />
         </font>
     </JFXButton>
+
+    <TableView fx:id="tvItem" layoutX="280.0" layoutY="155.0" opacity="0.5" prefHeight="430.0" prefWidth="700.0">
+        <columns>
+            <TableColumn fx:id="tcItemNome" prefWidth="108.0" text="Nome" />
+            <TableColumn fx:id="tcItemMarca" prefWidth="90.0" text="Marca" />
+            <TableColumn fx:id="tcItemValor" prefWidth="68.0" text="Valor" />
+            <TableColumn fx:id="tcItemComercio" prefWidth="103.0" text="Comércio" />
+            <TableColumn fx:id="tcItemCidade" prefWidth="101.0" text="Cidade" />
+            <TableColumn fx:id="tcItemEstado" prefWidth="98.0" text="Estado" />
+            <TableColumn fx:id="tcItemUsuario" prefWidth="131.0" text="Usuário" />
+        </columns>
+    </TableView>
+   <JFXButton fx:id="btAdd" layoutX="205.0" layoutY="155.0" onAction="#adcionarLista" styleClass="botao" stylesheets="@../css/stylesheet.css" text="+" />
+   <ListView fx:id="ltvListas" layoutX="25.0" layoutY="155.0" prefHeight="430.0" prefWidth="161.0" />
+   <Label fx:id="lbLista" layoutX="72.0" layoutY="101.0" prefHeight="39.0" prefWidth="67.0" text="Listas">
+      <font>
+         <Font name="System Bold Italic" size="24.0" />
+      </font>
+   </Label>
+   <JFXButton fx:id="btAdciona" layoutX="1025.0" layoutY="162.0" onAction="#adcionaItem" prefHeight="150.0" prefWidth="150.0" styleClass="botao" stylesheets="@../css/stylesheet.css" text="Adcionar">
+      <font>
+         <Font name="System Bold Italic" size="22.0" />
+      </font>
+   </JFXButton>
+   <JFXButton fx:id="btEncerrar" layoutX="1025.0" layoutY="370.0" onAction="#encerraLista" prefHeight="150.0" prefWidth="150.0" styleClass="botao" stylesheets="@../css/stylesheet.css" text="Encerrar">
+      <font>
+         <Font name="System Bold Italic" size="22.0" />
+      </font>
+   </JFXButton>
+   <JFXProgressBar fx:id="pbCarrega" layoutX="523.0" layoutY="91.0" prefHeight="30.0" prefWidth="215.0" />
 </AnchorPane>

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="360.0" prefWidth="640.0" styleClass="wallpaper3" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.CadastraNormal">
+<AnchorPane prefHeight="360.0" prefWidth="640.0" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.CadastraNormal">
    <children>
       <JFXTextField fx:id="tfNome" labelFloat="true" layoutX="91.0" layoutY="52.0" prefHeight="25.0" prefWidth="196.0" promptText="Nome" />
       <JFXComboBox fx:id="cbCidade" labelFloat="true" layoutX="358.0" layoutY="52.0" prefHeight="25.0" prefWidth="135.0" promptText="Cidade" />
