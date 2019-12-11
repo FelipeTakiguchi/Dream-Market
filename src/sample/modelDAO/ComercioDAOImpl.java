@@ -117,7 +117,7 @@ public class ComercioDAOImpl implements ComercioDAO {
 
         while(res.next()){
             String nome = res.getString("nome");
-            String endereco = res.getString("nome");
+            String endereco = res.getString("endereco");
             Time horarioInicio = res.getTime("Horario_inicio");
             Time horarioFim = res.getTime("Horario_fim");
             int id_cidade = res.getInt("id_cidade");

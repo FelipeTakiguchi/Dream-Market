@@ -14,7 +14,7 @@ public class ItemDAOImpl implements ItemDAO {
     private static String VERIF = "select nome from Item where nome like ?";
     private static String LISTA = "select * from Item";
     private static String LISTAADM = "select * from Item where id_responsavel = ?";
-    private static String BUSCAID = "select * from Item where id like ?";
+    private static String BUSCAID = "select * from Item where id_item like ?";
     private static String BUSCANOME = "select * from Item where nome like ?";
     private static String CIDADE = "select * from Cidade where Id_cidade = ?";
     private static String ITEMPRODUTO = "select * from Item where id_produto = ?";
@@ -109,9 +109,11 @@ public class ItemDAOImpl implements ItemDAO {
             Comercio comercio = comercioDAO.buscaId(id_comercio);
             UsuarioAdm usuarioAdm = usuarioAdmDAO.buscaId(id_responsavel);
 
+            System.out.println("id: "+id_responsavel);
+            System.out.println("nome: "+usuarioAdm.getNome());
+
             Item item = new Item(id, estoque, preco, produto, comercio, data_atualizacao, usuarioAdm);
 
-            System.out.println(item);
             itens.add(item);
         }
 
@@ -347,7 +349,6 @@ public class ItemDAOImpl implements ItemDAO {
 
             Item item = new Item(id, estoque, preco, produto, comercio, data_atualizacao, usuarioAdm);
 
-            System.out.println(item);
             itens.add(item);
         }
 

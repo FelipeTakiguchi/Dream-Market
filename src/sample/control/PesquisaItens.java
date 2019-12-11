@@ -69,34 +69,6 @@ public class PesquisaItens extends Mensagem{
 
     private ObservableList<Item> listagem = FXCollections.observableArrayList();
 
-
-
-
-
-
-//    public Task<Void> atualizaProgresso(){
-//        return new Task<Void>() {
-//            @Override
-//            protected Void call() throws Exception {
-//                while(true){
-//                    int contProgresso=0;
-//                    while(true){
-//                        if(){
-//                            contProgresso+=10;
-//                            if(contProgresso>100){
-//                                contProgresso=0;
-//                            }
-//                            this.updateProgress(contProgresso,100);
-//                            Thread.sleep(1000);
-//                        }else{
-//                            Thread.sleep(100);
-//                        }
-//                    }
-//                }
-//            }
-//        };
-//    }
-
     @FXML
     void initialize() throws SQLException {
         tcItemNome.setCellValueFactory(new PropertyValueFactory<>("produtoNome"));
@@ -112,7 +84,6 @@ public class PesquisaItens extends Mensagem{
         taDescricao.setDisable(true);
         Font font = Font.font(36);
         taDescricao.fontProperty().set(font);
-//        System.out.println("listagem="+listagem);
         tvItem.setItems(listagem);
         ObservableList<Cidade> cidades = FXCollections.observableArrayList();
         cidades.addAll(Controle.getInstance().carregaCidades());
@@ -129,9 +100,6 @@ public class PesquisaItens extends Mensagem{
         Thread backgroundThread = new Thread(carrega);
         backgroundThread.setDaemon(true);
         backgroundThread.start();
-
-
-
     }
 
 
@@ -144,7 +112,6 @@ public class PesquisaItens extends Mensagem{
                     listagem.addAll(lista);
                     pbCarrega.setVisible(false);
                 });
-                System.out.println(listagem);
                 return null;
             }
         };
@@ -168,9 +135,7 @@ public class PesquisaItens extends Mensagem{
         Font font = Font.font(14);
         taDescricao.fontProperty().set(font);
         Item item = tvItem.getSelectionModel().getSelectedItem();
-        System.out.println(item.mostra());
         taDescricao.setText(item.mostra());
-        System.out.println(item);
     }
 
     public void verificaTecla(KeyEvent keyEvent) throws SQLException {

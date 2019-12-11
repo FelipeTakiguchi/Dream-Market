@@ -60,6 +60,8 @@ public class Menu {
     private static int nivel = 1;
 
     public void initialize() throws SQLException {
+        resetaSize();
+        resetaImagem();
 
         if(Controle.getInstance().isAdm(Controle.getUsuario().getNome(), Controle.getUsuario().getSenha())){
             tgModo.setVisible(true);

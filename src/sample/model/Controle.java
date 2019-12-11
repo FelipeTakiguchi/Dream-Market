@@ -44,7 +44,6 @@ public class Controle {
 
     public static void setUsuarioAdm(UsuarioAdm usuarioAdm) {
         Controle.usuarioAdm = usuarioAdm;
-        System.out.println(usuarioAdm);
     }
 
     public static Usuario getUsuario() {
@@ -59,7 +58,34 @@ public class Controle {
         return instance;
     }
 
+    public Lista salvaLista(Lista lista) throws SQLException{
+        ListaDAO listaDAO = new ListaDAOImpl();
+        ListaItemDAO listaItemDAO = new ListaItemDAOImpl();
+
+        Lista list = listaDAO.insere(lista);
+        int max = listaDAO.retornaMax();
+        lista.setId(max);
+
+        int i = 0;
+
+        while(i < lista.getListaItems().size()){
+            listaItemDAO.insere(lista.getListaItems().get(i));
+            i++;
+        }
+
+        return list;
+    }
+
+    public List<Lista> carregaListas() throws SQLException {
+        ListaDAO listaDAO = new ListaDAOImpl();
+        return listaDAO.lista();
+    }
+
     public Usuario addUsuario(Usuario usuario) throws SQLException{
+        return usuarioDAO.insere(usuario.getNome(), usuario.getEmail(), usuario.getSenha(), usuario.getCidade());
+    }
+
+    public Usuario mudaUsuarioNormal(Usuario usuario) throws SQLException {
         return usuarioDAO.insere(usuario.getNome(), usuario.getEmail(), usuario.getSenha(), usuario.getCidade());
     }
 
@@ -116,6 +142,11 @@ public class Controle {
         return false;
     }
 
+    public UsuarioAdm getAdm(Usuario usuario) throws SQLException{
+        UsuarioAdmDAO usuarioAdmDAO = new UsuarioAdmDAOImpl();
+        return usuarioAdmDAO.buscaId(usuario.getId());
+    }
+
     public UsuarioAdm verificaAdm(String credencial, String senha) throws SQLException{
         if(usuarioAdmDAO.verif(credencial, senha) != null){
             return usuarioAdmDAO.verif(credencial, senha);
@@ -123,8 +154,6 @@ public class Controle {
         if(usuarioAdmDAO.verifEmail(credencial, senha) != null){
             return usuarioAdmDAO.verifEmail(credencial, senha);
         }
-
-        System.out.println("Result > " + usuarioAdmDAO.verifEmail(credencial, senha));
 
         return null;
     }

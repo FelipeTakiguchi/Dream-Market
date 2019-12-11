@@ -97,7 +97,6 @@ public class ProdutoDAOImpl implements ProdutoDAO {
 
     @Override
     public List<Produto> listaAdm(int id_usuario) throws SQLException{
-        System.out.println(id_usuario);
         ArrayList<Produto> produtos = new ArrayList<>();
 
         Connection con = FabricaConexao.getConnection();

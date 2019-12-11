@@ -29,28 +29,25 @@ public class ContratoAdm {
     }
 
     public void voltar(ActionEvent event) {
-        Dialog<ButtonType> dialog = new Dialog<>();
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(Browser.CADASTRAADM));
-
-        try{
-            Pane conteudo = loader.load();
-
-            dialog.getDialogPane().setContent(conteudo);
-
-            dialog.showAndWait();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+        Cadastro.setVoltar(1);
+        System.out.println(Cadastro.getVoltar());
+        acaoFechar();
     }
 
     public void proximo() throws Exception {
         if(cbAcordo.isSelected()){
             if(Controle.getUsuario() == null) {
+                if(Controle.getInstance().verificaUsuarioNome(Controle.getUsuario().getNome(), Controle.getUsuario().getSenha()) == null && Controle.getInstance().verificaUsuarioEmail(Controle.getUsuario().getEmail(), Controle.getUsuario().getSenha()) == null) {
+                    Controle.getInstance().addUsuario(Controle.getUsuario());
+                }
+
                 Controle.getInstance().addUsuarioAdm(Controle.getUsuarioAdm());
             }
             else{
+                if(Controle.getInstance().verificaUsuarioNome(Controle.getUsuario().getNome(), Controle.getUsuario().getSenha()) == null && Controle.getInstance().verificaUsuarioEmail(Controle.getUsuario().getEmail(), Controle.getUsuario().getSenha()) == null) {
+                    Controle.getInstance().mudaUsuarioNormal(Controle.getUsuario());
+                }
+
                 Controle.getInstance().mudaUsuario(Controle.getUsuarioAdm());
             }
         }else{

@@ -24,6 +24,8 @@ public class Cadastro {
 
     private double xOffset = 0;
     private double yOffset = 0;
+
+    private static int voltar = 0;
     
     @FXML
     void acaoFechar(){
@@ -65,17 +67,20 @@ public class Cadastro {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(Browser.CADASTRANORMAL));
 
+        boolean flag;
+        boolean flag2;
+
         try{
             Pane conteudo = loader.load();
 
             dialog.getDialogPane().setContent(conteudo);
             ButtonType proximoButtonType = new ButtonType("Próximo", ButtonBar.ButtonData.NEXT_FORWARD);
             dialog.getDialogPane().getButtonTypes().add(proximoButtonType);
-            boolean flag = false;
+            flag = false;
             while(!flag) {
                 Optional<ButtonType> res = dialog.showAndWait();
 
-                if(!dialog.isShowing()){
+                if(!dialog.isShowing() || voltar == 1){
                     flag = true;
                 }
 
@@ -95,21 +100,24 @@ public class Cadastro {
                         dialog.getDialogPane().setContent(conteudo2);
                         ButtonType proximoButtonType2 = new ButtonType("Próximo", ButtonBar.ButtonData.NEXT_FORWARD);
                         dialog.getDialogPane().getButtonTypes().add(proximoButtonType2);
-                        boolean flag2 = false;
+                        flag2 = false;
 
                         while(!flag2) {
                             Optional<ButtonType> res2 = dialog.showAndWait();
 
-                            if(!dialog.isShowing()){
+                            if(!dialog.isShowing() || voltar == 1){
                                 flag2 = true;
                             }
+                            System.out.println("NÃAAÃÃO");
 
-                            if (res2.isPresent() && res2.get() == proximoButtonType) {
+                            if (res2.isPresent() && res2.get() == proximoButtonType2) {
                                 ContratoNormal controlador2 = loader2.getController();
+                                System.out.println("Oi");
                                 try {
+                                    System.out.println("Tudo bem?");
                                     controlador2.proximo();
-                                    flag2 = true;
                                     FXMLLoader loader3 = new FXMLLoader();
+                                    System.out.println("Controle usuario: "+Controle.getUsuario());
                                     loader3.setLocation(getClass().getResource(Browser.CONCLUINORMAL));
 
                                     Pane conteudo3 = loader3.load();
@@ -122,6 +130,8 @@ public class Cadastro {
                                 }
                             }
                         }
+
+                        voltar = 0;
                     } catch (Exception e) {
                         flag = false;
                     }
@@ -129,9 +139,18 @@ public class Cadastro {
                 }
             }
 
+            voltar = 0;
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    public static int getVoltar() {
+        return voltar;
+    }
+
+    public static void setVoltar(int voltar) {
+        Cadastro.voltar = voltar;
     }
 
     public void criaAdministrador(ActionEvent event) throws IOException {
@@ -140,17 +159,20 @@ public class Cadastro {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(Browser.CADASTRAADM));
 
+        boolean flag2;
+        boolean flag;
+
         try{
             Pane conteudo = loader.load();
 
             dialog.getDialogPane().setContent(conteudo);
             ButtonType proximoButtonType = new ButtonType("Próximo", ButtonBar.ButtonData.NEXT_FORWARD);
             dialog.getDialogPane().getButtonTypes().add(proximoButtonType);
-            boolean flag = false;
+            flag = false;
             while(!flag) {
                 Optional<ButtonType> res = dialog.showAndWait();
 
-                if(!dialog.isShowing()){
+                if(!dialog.isShowing() || voltar == 1){
                     flag = true;
                 }
 
@@ -158,8 +180,6 @@ public class Cadastro {
                     CadastraAdm controle = loader.getController();
                     try {
                         controle.proximoPasso();
-
-                        flag = true;
 
                         FXMLLoader loader2 = new FXMLLoader();
                         loader2.setLocation(getClass().getResource(Browser.EXIBECONDICOESADM));
@@ -170,11 +190,20 @@ public class Cadastro {
                         dialog.getDialogPane().setContent(conteudo);
                         ButtonType proximoButtonType2 = new ButtonType("Próximo", ButtonBar.ButtonData.NEXT_FORWARD);
                         dialog.getDialogPane().getButtonTypes().add(proximoButtonType2);
-                        boolean flag2 = false;
+                        flag2 = false;
+
                         while(!flag2) {
                             Optional<ButtonType> res2 = dialog.showAndWait();
 
                             System.out.println(dialog.isShowing());
+
+                            if(!dialog.isShowing() && voltar == 0){
+                                flag = true;
+                                flag2 = true;
+                            }
+                            else if(!dialog.isShowing() && voltar == 1){
+                                flag2 = true;
+                            }
 
                             if (res2.isPresent() && res2.get() == proximoButtonType2) {
                                try {
@@ -188,14 +217,14 @@ public class Cadastro {
                                    dialog.getDialogPane().getButtonTypes().clear();
                                    dialog.getDialogPane().setContent(conteudo);
                                    dialog.showAndWait();
-
-                                   flag2 = true;
                                }catch (Exception e){
                                    flag2 = true;
                                    e.printStackTrace();
                                }
                             }
                         }
+
+                        voltar = 0;
                     } catch (Exception e) {
                         flag = false;
                     }
@@ -203,6 +232,7 @@ public class Cadastro {
                 }
             }
 
+            voltar = 0;
         }catch (IOException e){
             e.printStackTrace();
         }

@@ -3,26 +3,33 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import java.lang.String?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" styleClass="wallpaper3" stylesheets="@../css/wallpapers.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.GerarLista">
-
-    <JFXButton fx:id="btFechar" layoutX="1235.0" layoutY="14.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
-        <cursor>
-            <Cursor fx:constant="HAND" />
-        </cursor>
-        <styleClass>
-            <String fx:value="botaoredondopreto" />
-            <String fx:value="corazul2" />
-        </styleClass>
-        <font>
-            <Font name="System Bold" size="13.0" />
-        </font>
-    </JFXButton>
-    <JFXButton layoutX="554.0" layoutY="640.0" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
-        <font>
-            <Font name="System Bold Italic" size="18.0" />
-        </font>
-    </JFXButton>
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="wallpaper3" stylesheets="@../css/wallpapers.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.GerarLista">
+   <children>
+       <JFXButton fx:id="btFechar" layoutX="1236.0" layoutY="14.0" onAction="#acaoFechar" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/stylesheet.css" text="X" textFill="WHITE">
+           <cursor>
+               <Cursor fx:constant="HAND" />
+           </cursor>
+           <styleClass>
+               <String fx:value="botaoredondopreto" />
+               <String fx:value="corazul2" />
+           </styleClass>
+           <font>
+               <Font name="System Bold" size="13.0" />
+           </font>
+       </JFXButton>
+       <JFXButton layoutX="543.0" layoutY="633.0" onAction="#voltar" styleClass="corazul1" stylesheets="@../css/stylesheet.css" text="Voltar">
+           <font>
+               <Font name="System Bold Italic" size="18.0" />
+           </font>
+       </JFXButton>
+      <ListView fx:id="ltvListas" layoutX="442.0" layoutY="193.0" onMouseClicked="#abilitaBotao" prefHeight="312.0" prefWidth="236.0" />
+      <JFXButton fx:id="btImprime" layoutX="699.0" layoutY="633.0" onAction="#gerarLista" styleClass="botao3" stylesheets="@../css/stylesheet.css" text="Gerar PDF" />
+      <Label fx:id="lbFrom" layoutX="815.0" layoutY="543.0" />
+      <Label fx:id="lbTo" layoutX="817.0" layoutY="572.0" />
+   </children>
 </AnchorPane>

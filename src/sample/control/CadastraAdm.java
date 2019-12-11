@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import sample.Browser;
 import sample.model.Cidade;
 import sample.model.Controle;
+import sample.model.Usuario;
 import sample.model.UsuarioAdm;
 
 import java.io.IOException;
@@ -67,9 +68,23 @@ public class CadastraAdm extends Mensagem {
                 String telefone = tfTelefone.getText();
                 String cpf = tfCpf.getText();
 
-                UsuarioAdm usuarioAdm = new UsuarioAdm(nome, email, senha, cidade, telefone, cpf);
+                if(email.contains("@") && email.contains(".com")) {
+                    if (cpf.length() == 14) {
+                        if (cpf.substring(3, 4).equals(".") && cpf.substring(7, 8).equals(".") && cpf.substring(11, 12).equals("-")) {
+                            Usuario usuario = new Usuario(nome, email, senha, cidade);
+                            UsuarioAdm usuarioAdm = new UsuarioAdm(nome, email, senha, cidade, telefone, cpf);
 
-                Controle.setUsuarioAdm(usuarioAdm);
+                            Controle.setUsuario(usuario);
+                            Controle.setUsuarioAdm(usuarioAdm);
+                        } else {
+                            Aviso(Alert.AlertType.WARNING, "CPF inválido!");
+                        }
+                    } else {
+                        Aviso(Alert.AlertType.WARNING, "CPF inválido!");
+                    }
+                }else{
+                    Aviso(Alert.AlertType.WARNING, "Email inválido!");
+                }
             }
             else
             {

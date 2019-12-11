@@ -32,6 +32,10 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
         stm.setString(2,u.getTelefone());
         stm.setString(3,u.getCpf());
 
+        System.out.println(getId.getId());
+        System.out.println(u.getTelefone());
+        System.out.println(u.getCpf());
+
         stm.executeUpdate();
 
         stm.close();
@@ -165,18 +169,16 @@ public class UsuarioAdmDAOImpl implements UsuarioAdmDAO {
 
     @Override
     public UsuarioAdm buscaId(int id) throws SQLException{
-        UsuarioDAO resgata = new UsuarioDAOImpl();
         UsuarioAdm u = null;
 
-        Usuario usuario = resgata.buscaId(id);
+        UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
+        Usuario usuario = usuarioDAO.buscaId(id);
 
         Connection con = FabricaConexao.getConnection();
 
         PreparedStatement stm = con.prepareStatement(BUSCAID);
 
         stm.setInt(1,id);
-
-        System.out.println(id+" "+resgata.buscaId(id));
 
         ResultSet res = stm.executeQuery();
 

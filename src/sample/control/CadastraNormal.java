@@ -61,9 +61,16 @@ public class CadastraNormal extends Mensagem{
                 String senha = pfSenha.getText();
                 Cidade cidade = cbCidade.getSelectionModel().getSelectedItem();
 
-                Usuario usuario = new Usuario(nome, email, senha, cidade);
+                if(email.contains("@") && email.contains(".com")) {
+                    Usuario usuario = new Usuario(nome, email, senha, cidade);
 
-                Controle.setUsuario(usuario);
+                    Controle.setUsuario(usuario);
+                }
+                else
+                {
+                    Aviso(Alert.AlertType.WARNING, "Email inválido!");
+                    throw new Exception("Dados errados!");
+                }
             }
             else
             {

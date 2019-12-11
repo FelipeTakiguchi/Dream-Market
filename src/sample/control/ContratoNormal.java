@@ -31,24 +31,16 @@ public class ContratoNormal {
         Browser.loadWindows(Browser.CADASTRANORMAL);
     }
 
-    public void proximo() throws SQLException {
+    public void proximo() throws Exception {
         if(cbAcordo.isSelected()){
-            Controle.getInstance().addUsuario(Controle.getUsuario());
-            System.out.println(Controle.getUsuario());
-            Dialog<ButtonType> dialog = new Dialog<>();
-
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource(Browser.CONCLUINORMAL));
-
-            try{
-                Pane conteudo = loader.load();
-
-                dialog.getDialogPane().setContent(conteudo);
-
-                dialog.showAndWait();
-            }catch (IOException e){
-                e.printStackTrace();
+            if(Controle.getUsuario() == null) {
+                Controle.getInstance().addUsuario(Controle.getUsuario());
             }
+            else{
+                Controle.getInstance().mudaUsuarioNormal(Controle.getUsuario());
+            }
+        }else{
+            throw new Exception("Aceite os termos de uso para prosseguir");
         }
     }
 }

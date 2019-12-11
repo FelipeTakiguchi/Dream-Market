@@ -26,6 +26,7 @@ public class Browser {
     public static final String GERARLISTA= "/sample/view/gerarLista.fxml";
     public static final String MUDAADM = "/sample/view/mudaAdm.fxml";
     public static final String MENUADM = "/sample/view/menuAdm.fxml";
+    public static final String NOMEARQUIVO = "/sample/view/nomeLista.fxml";
 
     private static Base controller;
 

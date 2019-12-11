@@ -31,6 +31,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         PreparedStatement stm = con
                 .prepareStatement(INSERE);
 
+        System.out.println(u.getNome());
+        System.out.println(u.getEmail());
+        System.out.println(u.getSenha());
+        System.out.println(u.getCidade().getId());
+
         stm.setString(1,u.getNome());
         stm.setString(2,u.getEmail());
         stm.setString(3,u.getSenha());

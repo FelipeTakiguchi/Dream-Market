@@ -28,9 +28,6 @@ public class CidadeDAOImpl implements CidadeDAO {
         PreparedStatement stm = con
                 .prepareStatement(INSERE);
 
-        System.out.println("Entrei");
-        System.out.println(c.getNome()+c.getEstado().getId());
-
         stm.setString(1,c.getNome());
         stm.setInt(2,c.getEstado().getId());
         stm.executeUpdate();
@@ -120,7 +117,6 @@ public class CidadeDAOImpl implements CidadeDAO {
             }
 
             Cidade cat = new Cidade(id, nome, estado);
-            System.out.println(cat);
             Cidades.add(cat);
 
             res2.close();
@@ -150,8 +146,6 @@ public class CidadeDAOImpl implements CidadeDAO {
         stm.setInt(1,id);
 
         ResultSet res = stm.executeQuery();
-
-        System.out.println(res.next());
 
         while(res.next()){
             String nome = res.getString("nome");
