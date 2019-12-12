@@ -89,8 +89,6 @@ public class ListaDAOImpl implements ListaDAO {
             listaItems.addAll(listaItemDAO.buscaId(id_lista));
             Lista lista = new Lista(Controle.getUsuario(), data_atualizacao, nome, listaItems);
             listas.add(lista);
-            System.out.println("lista: "+lista);
-            System.out.println("listas: "+listas);
         }
 
         stm.close();

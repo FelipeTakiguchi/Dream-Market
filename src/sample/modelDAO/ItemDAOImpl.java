@@ -109,9 +109,6 @@ public class ItemDAOImpl implements ItemDAO {
             Comercio comercio = comercioDAO.buscaId(id_comercio);
             UsuarioAdm usuarioAdm = usuarioAdmDAO.buscaId(id_responsavel);
 
-            System.out.println("id: "+id_responsavel);
-            System.out.println("nome: "+usuarioAdm.getNome());
-
             Item item = new Item(id, estoque, preco, produto, comercio, data_atualizacao, usuarioAdm);
 
             itens.add(item);

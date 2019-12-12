@@ -185,14 +185,7 @@ public class MenuAdm {
     }
 
     private void limpaTela(){
-        tfUm.clear();
-        tfDois.clear();
-        taDescricao.clear();
-        cbProduto.getSelectionModel().clearSelection();
-        cbCidade.getSelectionModel().clearSelection();
-        cbComercio.getSelectionModel().clearSelection();
-        Font font = Font.font(32);
-        taDescricao.fontProperty().set(font);
+        apagaPanes();
         tpInicio.setVisible(false);
         tpFim.setVisible(false);
         tfUm.setVisible(false);
@@ -203,6 +196,21 @@ public class MenuAdm {
         cbProduto.setVisible(false);
         cbDisponivel.setVisible(false);
         cbItem.setVisible(false);
+    }
+
+    private void apagaPanes(){
+        tfUm.clear();
+        tfDois.clear();
+        taDescricao.clear();
+        tpInicio.setValue(null);
+        tpFim.setValue(null);
+        cbItem.getSelectionModel().clearSelection();
+        cbProduto.getSelectionModel().clearSelection();
+        cbCidade.getSelectionModel().clearSelection();
+        cbComercio.getSelectionModel().clearSelection();
+        Font font = Font.font(32);
+        taDescricao.fontProperty().set(font);
+        taDescricao.setText("                                       Descrição");
     }
 
     private void atualizaDados() throws SQLException{
@@ -228,6 +236,7 @@ public class MenuAdm {
             Comercio comercio = new Comercio(nome, Endereco, horarioInicio, horarioFim, cidade);
             Controle.getInstance().addComercio(comercio);
             atualizaDados();
+            apagaPanes();
         }
         else if(btProduto.isDisable()){
             String nome = tfUm.getText();
@@ -237,6 +246,7 @@ public class MenuAdm {
             Produto produto = new Produto(nome, marca, descricao, usuario.getId());
             Controle.getInstance().addProduto(produto);
             atualizaDados();
+            apagaPanes();
         }
         else if(btItem.isDisable()){
             Boolean estoque = cbDisponivel.isSelected();
@@ -249,12 +259,14 @@ public class MenuAdm {
             Item item = new Item(estoque, preco, produto, comercio, date, usuarioAdm);
             Controle.getInstance().addItem(item);
             atualizaDados();
+            apagaPanes();
         }
         else if(btGerenciaItem.isDisable()){
             Item item = cbItem.getSelectionModel().getSelectedItem();
             Float preco = Float.valueOf(tfUm.getText());
 
             Controle.getInstance().atualizaItem(item, preco);
+            apagaPanes();
         }
     }
 
